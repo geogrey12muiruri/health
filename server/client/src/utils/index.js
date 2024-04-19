@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { SetPosts } from '../redux/postSlice.js';
 
-const API_URL = "http://localhost:8800";
+const API_URL = "https://health-7.onrender.com";
 
 
 
