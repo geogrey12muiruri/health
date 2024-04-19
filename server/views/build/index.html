@@ -1,0 +1,96 @@
+<!-- create the verifiedpage html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Verified Page</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <style>
+        body {
+            font-family: Arial sans-serif;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: rgba(0, 0, 0, 0.05);
+
+        }
+
+        .card{
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            background-color: #fff;
+            width: 300px;
+
+        }
+
+        .icon{
+            font-size: 50px;
+            color: #333;
+        }
+
+        .success{
+            color: #28a745;
+        }
+
+        .error{
+            color: #dc3545;
+        }
+
+        .hideBtn{
+            display: none;
+        }
+
+        .showBtn{
+            display: flex;
+            text-align: center;
+            align-items: center ;
+            justify-content: center;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: rgba(1, 116, 210, 0.971);
+        }
+       
+    </style> 
+</head>
+  <body>
+    <div class="card">
+        <div class="icon">
+            <span id="statusIcon" class=""></span>
+
+        </div>
+        <div id="statusMessage" class="">
+
+        </div>
+
+        <a href="http://localhost:5173/login" class="hideBtn" id="btn">Login</a>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const status = urlParams.get('status');
+        const message = urlParams.get('message');
+
+        const statusIcon = document.getElementById('statusIcon');
+        const statusMessage = document.getElementById('statusMessage');
+        const btn = document.getElementById('btn');
+
+        if(status === 'success'){
+            statusIcon.classList.add('fa', 'fa-check-circle', 'success');
+            statusMessage.innerHTML = message;
+            btn.classList.remove('hideBtn');
+            btn.classList.add('showBtn');
+        }else{
+            statusIcon.classList.add('fa', 'fa-times-circle', 'error');
+            statusMessage.innerHTML = message;
+            btn.classList.remove('hideBtn');
+            btn.classList.add('showBtn');
+        }
+        
+    </script>
+     
+    
+  </body>
