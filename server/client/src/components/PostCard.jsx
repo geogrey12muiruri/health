@@ -196,7 +196,7 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
   const handleViewIncrement = async () => {
     try {
       await apiRequest({
-        url: `/views/${post?._id}`,
+        url: `/post/views/${post?._id}`,
         method: "PUT",
       });
       // Update the views count locally
