@@ -2,7 +2,7 @@ import {useState} from 'react'
 import {useLocation} from 'react-router-dom'
 import { Dialog } from '@headlessui/react'
 import { FaCommentMedical } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
 
 const TopBar = () => {
   const location = useLocation();
