@@ -24,7 +24,7 @@ const TopBar = () => {
        
           </a>
         </div> */}
-          <Link to="/" className="flex items-center rounded-xl overflow-hidden mx-auto md:mx-0">
+          <Link to="/" className="flex items-center rounded-xl overflow-hidden mx-auto md:mx-0 shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none rounded-lg mr-3">
          {/* Left Section with SVG */}
          <div className="bg-yellow-400 p-2">
            <svg fill="#FFFFFF" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 431.771 431.771" xml:space="preserve" stroke="#ffa500">
