@@ -29,8 +29,10 @@ export const createPost = async (req, res, next) => {
   }
 };
 
-// Controller function to increment views count for a specific post
- try {
+export const incrementPostViews = async (req, res) => {
+  const postId = req.params.id;
+
+  try {
     // Find the post by ID
     const post = await Posts.findById(postId);
 
@@ -52,7 +54,6 @@ export const createPost = async (req, res, next) => {
     return res.status(500).json({ message: "Internal Server Error" });
   }
 };
-
 export const getPosts = async (req, res, next) => {
   try {
     const { userId } = req.body.user;
