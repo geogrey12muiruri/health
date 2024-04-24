@@ -8,6 +8,8 @@ import { useForm } from "react-hook-form";
 import TextInput from "./TextInput";
 import Loading from "./Loading";
 import CustomButton from "./CustomButton";
+import { BiShow } from "react-icons/bi";
+
 
 import { apiRequest } from "../utils";
 
@@ -191,6 +193,23 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
     getComments(post?._id);
   };
 
+  const handleViewIncrement = async () => {
+    try {
+      await apiRequest({
+        url: `/posts/views/${post?._id}`,
+        method: "PUT",
+      });
+      // Update the views count locally
+      setPost((prevPost) => ({
+        ...prevPost,
+        views: prevPost.views + 1,
+      }));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+
   return (
     <div className='mb-2 bg-primary p-4 rounded-xl'>
       <div className='flex gap-3 items-center mb-2'>
@@ -201,6 +220,13 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
             className='w-14 h-14 object-cover rounded-full'
           />
         </Link>
+
+        <Link to={"/post/" + post?._id} onClick={handleViewIncrement}>
+  <p className='font-medium text-lg text-ascent-1'>
+    {post?.title}
+  </p>
+</Link>
+
 
         <div className='w-full flex justify-between'>
           <div className=''>
@@ -266,6 +292,12 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
           )}
           {post?.likes?.length} Likes
         </p>
+        <div className='flex gap-2 items-center text-base cursor-pointer'>
+  <BiShow size={20} />
+  {post?.views} Views
+</div>
+
+
 
         <p
           className='flex gap-2 items-center text-base cursor-pointer'
