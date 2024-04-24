@@ -244,38 +244,38 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
         </div>
       </div>
 
-      <div>
-        <p className='text-ascent-2'>
-          {showAll === post?._id
-            ? post?.description
-            : post?.description.slice(0, 300)}
+      <div onClick={handleViewIncrement} className="post-content">
+  <p className='text-ascent-2'>
+    {showAll === post?._id
+      ? post?.description
+      : post?.description.slice(0, 300)}
 
-          {post?.description?.length > 301 &&
-            (showAll === post?._id ? (
-              <span
-                className='text-blue ml-2 font-mediu cursor-pointer'
-                onClick={() => setShowAll(0)}
-              >
-                Show Less
-              </span>
-            ) : (
-              <span
-                className='text-blue ml-2 font-medium cursor-pointer'
-                onClick={() => setShowAll(post?._id)}
-              >
-                Show More
-              </span>
-            ))}
-        </p>
+    {post?.description?.length > 301 &&
+      (showAll === post?._id ? (
+        <span
+          className='text-blue ml-2 font-medium cursor-pointer'
+          onClick={() => setShowAll(0)}
+        >
+          Show Less
+        </span>
+      ) : (
+        <span
+          className='text-blue ml-2 font-medium cursor-pointer'
+          onClick={() => setShowAll(post?._id)}
+        >
+          Show More
+        </span>
+      ))}
+  </p>
 
-        {post?.image && (
-          <img
-            src={post?.image}
-            alt='post image'
-            className='w-full mt-2 rounded-lg'
-          />
-        )}
-      </div>
+  {post?.image && (
+    <img
+      src={post?.image}
+      alt='post image'
+      className='w-full mt-2 rounded-lg'
+    />
+  )}
+</div>
 
       <div
         className='mt-4 flex justify-between items-center px-3 py-2 text-ascent-2
