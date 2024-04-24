@@ -66,18 +66,23 @@ const TopBar = () => {
               </a>
             </li>
             <li>
-              <a href='/products'className={`${location.pathname === '/product' ? active : inActive} hover:border-b-2 border-green-400 transition-all font-bold font-mono duration-300 ease-in-ou`}>
-                Products
+              <a href='/products'className={`${location.pathname === '/services' ? active : inActive} hover:border-b-2 border-green-400 transition-all font-bold font-mono duration-300 ease-in-ou`}>
+                Services
               </a>
             </li>
             <li>
-              <a href='/markets' className={`${location.pathname === '/markets' ? active : inActive} hover:border-b-2 border-green-400 transition-all font-bold font-mono duration-300 ease-in-ou`}>
-                Markets
+              <a href='/markets' className={`${location.pathname === '/social' ? active : inActive} hover:border-b-2 border-green-400 transition-all font-bold font-mono duration-300 ease-in-ou`}>
+                Social & News
               </a>
             </li>
             <li>
-              <a href='/dashboard' className={`${location.pathname === '/dashboard' ? active : inActive} hover:border-b-2 border-green-400 transition-all font-bold font-mono duration-300 ease-in-ou`}>
-                dashboard
+              <a href='/dashboard' className={`${location.pathname === '/cases' ? active : inActive} hover:border-b-2 border-green-400 transition-all font-bold font-mono duration-300 ease-in-ou`}>
+                Cases
+              </a>
+            </li>
+             <li>
+              <a href='/contact' className={`${location.pathname === '/blogs' ? active : inActive} hover:border-b-2 border-green-400 transition-all font-bold font-mono duration-300 ease-in-ou`}>
+                Blogs
               </a>
             </li>
             <li>
