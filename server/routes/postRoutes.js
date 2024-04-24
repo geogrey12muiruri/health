@@ -31,6 +31,8 @@ router.get("/comments/:postId", getComments);
 router.put("/views/:id", incrementPostViews);
 
 
+
+
 //like and comment on posts
 router.post("/like/:id", userAuth, likePost);
 router.post("/like-comment/:id/:rid?", userAuth, likePostComment);
