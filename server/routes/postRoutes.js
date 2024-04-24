@@ -11,6 +11,7 @@ import {
   likePost,
   likePostComment,
   replyPostComment,
+  increamentPostViews
 } from "../controllers/postController.js";
 
 const router = express.Router();
@@ -25,6 +26,10 @@ router.post("/get-user-post/:id", userAuth, getUserPost);
 
 // get comments
 router.get("/comments/:postId", getComments);
+
+// updates the views field for a particular post
+router.put("/views/:id", incrementPostViews);
+
 
 //like and comment on posts
 router.post("/like/:id", userAuth, likePost);
