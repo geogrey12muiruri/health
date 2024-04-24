@@ -15,9 +15,13 @@ const TopBar = () => {
         <nav className='flex sticky items-center justify-between p-4 md:p-6 lg:px-8 ' style={{ height: '100px', width: '100%', zIndex: '60', marginTop: '150px' }} >
         <div>
           <a href='/' className='flex py-3 px-6 item-center gap-1 text-lg font-mono fonto-bold shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none rounded-lg mr-3'>
-          <FaCommentMedical />
-
-        Medplus<sup>+</sup>
+          <div className="bg-yellow-400 p-2">
+            <FaCommentMedical />
+          </div>
+          <div className="bg-blue-500 text-white p-2 font-bold">
+             Medplus<sup>+</sup>
+          </div>
+       
           </a>
         </div>
         <div className='flex md:hidden'>
