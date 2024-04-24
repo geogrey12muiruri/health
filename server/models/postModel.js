@@ -8,6 +8,7 @@ const postSchema = new mongoose.Schema(
     image: { type: String },
     likes: [{ type: String }],
     comments: [{ type: Schema.Types.ObjectId, ref: "Comments" }],
+    views: { type: Number, default: 0 },
   },
   { timestamps: true }
 );
