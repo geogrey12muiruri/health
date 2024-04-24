@@ -11,7 +11,7 @@ import {
   likePost,
   likePostComment,
   replyPostComment,
-  increamentPostViews
+    incrementPostViews
 } from "../controllers/postController.js";
 
 const router = express.Router();
