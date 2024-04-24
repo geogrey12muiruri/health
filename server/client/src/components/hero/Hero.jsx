@@ -1,5 +1,3 @@
-// HeroSection.js
-
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -24,14 +22,14 @@ const HeroSection = () => {
   return (
     <Slider {...settings}>
       {/* First Slide with only background image */}
-      <div className="relative py-20 bg-cover bg-center bg-no-repeat bg-fixed bg-blend-overlay h-screen flex items-center">
+      <div className="relative py-16 md:py-20 lg:py-24 bg-cover bg-center bg-no-repeat bg-fixed bg-blend-overlay h-50 md:h-screen flex items-center">
         <img src={backgroundImage1} alt="Background 1" className="absolute inset-0 object-cover w-full h-full" />
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute inset-0 max-w-5xl mx-auto px-4 text-center text-white font-mono">
           <div className="flex flex-col h-full justify-center">
-          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4">
-            Welcome to Medplus: Connecting Patients with Trusted Medical Professionals
-          </h1>
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4">
+              Welcome to Medplus: Connecting Patients with Trusted Medical Professionals
+            </h1>
             <p className="text-lg mb-8">
               Experience expert advice and personalized treatment from the comfort of your home.
             </p>
@@ -48,16 +46,16 @@ const HeroSection = () => {
       </div>
 
       {/* Second Slide with background image and text */}
-      <div className="relative py-20 bg-cover bg-center bg-no-repeat bg-fixed bg-blend-overlay h-screen flex items-center">
+      <div className="relative py-16 md:py-20 lg:py-24 bg-cover bg-center bg-no-repeat bg-fixed bg-blend-overlay h-80 md:h-screen flex items-center">
         <img src={backgroundImage2} alt="Background 2" className="absolute inset-0 object-cover w-full h-full" />
         
         {/* Text and buttons */}
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute inset-0 max-w-5xl mx-auto px-4 text-center text-white font-mono">
           <div className="flex flex-col h-full justify-center">
-          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4">
-            Join Our Network of Medical Professionals
-          </h1>
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4">
+              Join Our Network of Medical Professionals
+            </h1>
             <p className="text-lg mb-8">
               Connect, collaborate, and share knowledge to enhance overall health.
             </p>
@@ -77,4 +75,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
