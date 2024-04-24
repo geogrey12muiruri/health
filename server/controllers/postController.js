@@ -30,12 +30,9 @@ export const createPost = async (req, res, next) => {
 };
 
 // Controller function to increment views count for a specific post
-export const incrementPostViews = async (req, res) => {
-  const postId = req.params.id;
-
-  try {
+ try {
     // Find the post by ID
-    const post = await Post.findById(postId);
+    const post = await Posts.findById(postId);
 
     // If post doesn't exist, return 404 Not Found
     if (!post) {
