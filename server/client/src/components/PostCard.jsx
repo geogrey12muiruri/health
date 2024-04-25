@@ -223,7 +223,7 @@ useEffect(() => {
   const handleViewIncrement = async () => {
     try {
       await apiRequest({
-        url: `/post/views/${post?._id}`,
+        url: `/views/${post?._id}`,
         method: "PUT",
       });
     } catch (error) {
