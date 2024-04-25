@@ -12,7 +12,7 @@ const TopBar = () => {
   return (
     <div>
       <header className=" mx-auto bg-blue-600 w-full border-b p-8 "  >
-        <nav className='flex sticky items-center justify-between p-4 md:p-6 lg:px-8 ' style={{ height: '100px', width: '100%', zIndex: '60' }} >
+        <nav className='flex sticky items-center justify-between p-4 md:p-6 lg:px-8 ' style={{ width: '100%', zIndex: '60' }} >
 {/*         <div>
           <a href='/' className='flex py-3 px-6 item-center gap-1 text-lg font-mono fonto-bold shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none rounded-lg mr-3'>
           <div className="bg-yellow-400 p-2">
