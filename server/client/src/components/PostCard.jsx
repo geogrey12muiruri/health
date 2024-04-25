@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef,  useState } from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import { NoProfile } from "../assets";
@@ -179,6 +179,7 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
   const [loading, setLoading] = useState(false);
   const [replyComments, setReplyComments] = useState(0);
   const [showComments, setShowComments] = useState(0);
+  const postRef = useRef(null);
 
   const getComments = async (id) => {
     setReplyComments(0);
@@ -193,25 +194,47 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
     getComments(post?._id);
   };
 
+useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          handleViewIncrement();
+          observer.unobserve(postRef.current);
+        }
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.5, // Trigger when at least 50% of the post is visible
+      }
+    );
+
+    if (postRef.current) {
+      observer.observe(postRef.current);
+    }
+
+    return () => {
+      if (postRef.current) {
+        observer.unobserve(postRef.current);
+      }
+    };
+  }, [post]);
+
   const handleViewIncrement = async () => {
     try {
       await apiRequest({
         url: `/post/views/${post?._id}`,
         method: "PUT",
       });
-      // Update the views count locally
-      setPost((prevPost) => ({
-        ...prevPost,
-        views: prevPost.views + 1,
-      }));
     } catch (error) {
-      console.log(error);
+      console.error("Error incrementing post views:", error);
     }
   };
+
   
 
   return (
-    <div className='mb-2 bg-primary p-4 rounded-xl'>
+    <div ref={postRef}  className='mb-2 bg-primary p-4 rounded-xl'>
       <div className='flex gap-3 items-center mb-2'>
         <Link to={"/profile/" + post?.userId?._id}>
           <img
