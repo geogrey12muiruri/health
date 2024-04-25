@@ -5,6 +5,8 @@ import Contact from './components/contact/Contact';
 import Navbar from './components/nav/Navbar';
 import Footer from './components/footer/Footer'
 import Socials from "./pages/Socials";
+import SymptomCheaker from "./components/carriculum/Carriculum";
+
 
 function Layout() {
   const { user } = useSelector((state) => state.user);
@@ -38,6 +40,8 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/reset-password' element={<ResetPassword />} />
         <Route path='/socials' element={<Socials />} />
+        <Route path='/carriculum' element={<Carriculum />} />
+        
       </Routes>
       <Footer />
     </div>
