@@ -40,7 +40,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/reset-password' element={<ResetPassword />} />
         <Route path='/socials' element={<Socials />} />
-        <Route path='/carriculum' element={<Carriculum />} />
+        <Route path='/carriculum' element={<SymptomCheaker/>} />
         
       </Routes>
       <Footer />
