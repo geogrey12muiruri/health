@@ -28,7 +28,7 @@ router.post("/get-user-post/:id", userAuth, getUserPost);
 router.get("/comments/:postId", getComments);
 
 // updates the views field for a particular post
-router.put("/post/views/:id", incrementPostViews);
+router.put('/views/:postId',  incrementPostViews);
 
 
 
