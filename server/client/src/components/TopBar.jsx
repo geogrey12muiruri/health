@@ -95,7 +95,7 @@ const TopBar = () => {
         <a href='/sign-in' className='hidden md:block items-center justify-center px-4 py-2 text-lg font-mono font-medium text-white bg-green-400 rounded-md hover:bg-green-500' outline>Login</a>
 
         </nav>
-        <Dialog as='div' className={'md:hidden'} open={mobile} onClose={setMobile} styles={{marginTop: '150px'}}>
+        <Dialog as='div' className={'md:hidden'} open={mobile} onClose={setMobile} styles={{marginTop: '100px'}}>
             <div className='fixed inset-0 z-50 bg-gray-50 bg-opacity-80'/>
             <Dialog.Panel className='fixed inset-y-0 right-0 z-50 overlay-y-auto bg-gray-50 bg-opacity-80 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-text/10' style={{paddingTop: '250px'}} styles={{marginTop: '250px'}}>
               <div className='flex justify-between'>
