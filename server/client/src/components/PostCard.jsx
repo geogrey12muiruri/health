@@ -180,7 +180,7 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
   const [replyComments, setReplyComments] = useState(0);
   const [showComments, setShowComments] = useState(0);
   const postRef = useRef(null);
-  const [post, setPost] = useState({ views: post.views });
+
 
 
   const getComments = async (id) => {
