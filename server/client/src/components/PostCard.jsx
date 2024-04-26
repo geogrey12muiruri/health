@@ -180,6 +180,8 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
   const [replyComments, setReplyComments] = useState(0);
   const [showComments, setShowComments] = useState(0);
   const postRef = useRef(null);
+  const [post, setPost] = useState({ views: post.views });
+
 
   const getComments = async (id) => {
     setReplyComments(0);
@@ -195,43 +197,48 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
   };
 
 useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          handleViewIncrement();
-          observer.unobserve(postRef.current);
-        }
-      },
-      {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.5, // Trigger when at least 50% of the post is visible
-      }
-    );
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        // Increment the views property locally
+        setPost((prevPost) => ({
+          ...prevPost,
+          views: prevPost.views + 1,
+        }));
 
-    if (postRef.current) {
-      observer.observe(postRef.current);
-    }
-
-    return () => {
-      if (postRef.current) {
+        // Unobserve the postRef to avoid duplicate increments
         observer.unobserve(postRef.current);
       }
-    };
-  }, [post]);
+    },
+    {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5, // Trigger when at least 50% of the post is visible
+    }
+  );
 
-  const handleViewIncrement = async () => {
-    try {
-      await apiRequest({
-        url: `/posts/views/${post?._id}`,
-        method: "PUT",
-      });
-    } catch (error) {
-      console.error("Error incrementing post views:", error);
+  if (postRef.current) {
+    observer.observe(postRef.current);
+  }
+
+  return () => {
+    if (postRef.current) {
+      observer.unobserve(postRef.current);
     }
   };
+}, []);
 
-  
+const handleViewIncrement = () => {
+  // Increment the views property locally
+  setPost((prevPost) => ({
+    ...prevPost,
+    views: prevPost.views + 1,
+  }));
+};
+
+
+
+
 
   return (
     <div ref={postRef}  className='mb-2 bg-primary p-4 rounded-xl'>
