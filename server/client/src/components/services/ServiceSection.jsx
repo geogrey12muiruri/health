@@ -28,7 +28,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="bg-blue-100 bg-opacity-25 py-12 font-mono">
+    <section className="bg-blue-100  py-12 font-mono">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-8">Our Services</h2>
         <motion.div
@@ -78,7 +78,7 @@ const ServicesSection = () => {
 
 const ServiceCard = ({ icon, title, description }) => {
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 hover:bg-blue-100">
+    <div className="bg-white bg-opacity-25 rounded-lg shadow-md p-6 hover:bg-blue-100">
       <div className="flex items-center justify-center mb-4">
         {icon}
       </div>
