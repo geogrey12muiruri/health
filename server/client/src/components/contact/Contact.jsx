@@ -10,20 +10,20 @@ const ContactSection = () => {
     <div className="bg-white bg-opacity-25 text-slate-950 py-4 px-6 flex flex-col md:flex-row justify-between items-center">
       {/* Social Media Links */}
       <div className="flex items-center mb-4 md:mb-0">
-        <a href="#" className="mr-4 text-blue-500">
-          <FaFacebook className="text-lg" />
+        <a href="#" className="mr-4 hover:text-blue-500 transition duration-300 transform hover:-translate-y-1">
+          <FaFacebook className="text-blue-500 text-lg" />
         </a>
         <div className="border-r border-blue-600 h-6 mx-6"></div>
-        <a href="#" className="mr-4 text-blue-400">
-          <FaTwitter className="text-lg" />
+        <a href="#" className="mr-4 hover:text-blue-400 transition duration-300 transform hover:-translate-y-1">
+          <FaTwitter className="text-blue-400 text-lg" />
         </a>
         <div className="border-r border-blue-600 h-6 mx-6"></div>
-        <a href="#" className="mr-4 text-pink-500">
-          <FaInstagram className="text-lg" />
+        <a href="#" className="mr-4 hover:text-pink-500 transition duration-300 transform hover:-translate-y-1">
+          <FaInstagram className="text-pink-500 text-lg" />
         </a>
         <div className="border-r border-blue-600 h-6 mx-6"></div>
-        <a href="#" className="text-blue-400">
-          <FaLinkedin className="text-lg" />
+        <a href="#" className="hover:text-blue-400 transition duration-300 transform hover:-translate-y-1">
+          <FaLinkedin className="text-blue-400 text-lg" />
         </a>
       </div>
 
@@ -37,7 +37,7 @@ const ContactSection = () => {
       <div className="flex items-center">
         <HiOutlineMail className="text-blue-500 text-lg mr-2" />
         <span className="mr-4">medplus@gmail.com</span>
-        <RiSearchLine className="text-blue-500 text-lg" />
+        <RiSearchLine className="text-blue-500 text-lg hover:text-gray-400 transition duration-300" />
       </div>
     </div>
   );
