@@ -30,7 +30,7 @@ const HeroSection = () => {
             <h1 className="text-lg sm:text-2xl md:text-2xl lg:text-2xl xl:text-3xl font-bold mb-4 leading-tight md:leading-normal">
               Welcome to Medplus: Connecting Patients with Trusted Medical Professionals
             </h1>
-            <p className="text-base md:text-sm mb-8">
+            <p className="text-sm md:text-sm mb-8">
               Experience expert advice and personalized treatment from the comfort of your home.
             </p>
             <div>
@@ -56,7 +56,7 @@ const HeroSection = () => {
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 leading-tight md:leading-normal">
               Join Our Network of Medical Professionals
             </h1>
-            <p className="text-base md:text-sm mb-8">
+            <p className="text-sm md:text-sm mb-8">
               Connect, collaborate, and share knowledge to enhance overall health.
             </p>
             <div>
