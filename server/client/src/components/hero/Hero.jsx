@@ -22,7 +22,7 @@ const HeroSection = () => {
   return (
     <Slider {...settings}>
       {/* First Slide with only background image */}
-      <div className="relative py-16 md:py-20 lg:py-24 bg-cover bg-center bg-no-repeat bg-fixed bg-blend-overlay h-50 md:h-screen flex items-center">
+      <div className="relative py-16 md:py-20 lg:py-24 bg-cover bg-center bg-no-repeat bg-fixed bg-blend-overlay h-80 md:h-screen flex items-center">
         <img src={backgroundImage1} alt="Background 1" className="absolute inset-0 object-cover w-full h-full" />
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute inset-0 max-w-5xl mx-auto px-4 text-center text-white font-mono">
