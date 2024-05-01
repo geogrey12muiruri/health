@@ -25,7 +25,7 @@ const Navbar = () => {
   </div>
 
   {/* Right Section with Text */}
-  <div className="bg-blue-500 text-white p-2 font-bold flex items-center" style={{ width: '70%', minHeight: '40px' }}>
+  <div className="bg-blue-500 text-white p-2 font-semi-bold flex items-center" style={{ width: '70%', minHeight: '40px' }}>
     Medplus<sup>+</sup>
   </div>
 </Link>
