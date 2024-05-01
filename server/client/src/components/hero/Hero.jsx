@@ -27,10 +27,10 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute inset-0 max-w-5xl mx-auto px-4 text-center text-white font-serif">
           <div className="flex flex-col h-full justify-center">
-            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4">
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 leading-tight md:leading-normal">
               Welcome to Medplus: Connecting Patients with Trusted Medical Professionals
             </h1>
-            <p className="text-lg mb-8">
+            <p className="text-base md:text-lg mb-8">
               Experience expert advice and personalized treatment from the comfort of your home.
             </p>
             <div>
@@ -53,10 +53,10 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute inset-0 max-w-5xl mx-auto px-4 text-center text-white font-serif">
           <div className="flex flex-col h-full justify-center">
-            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4">
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 leading-tight md:leading-normal">
               Join Our Network of Medical Professionals
             </h1>
-            <p className="text-lg mb-8">
+            <p className="text-base md:text-lg mb-8">
               Connect, collaborate, and share knowledge to enhance overall health.
             </p>
             <div>
