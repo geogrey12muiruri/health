@@ -11,19 +11,19 @@ const ContactSection = () => {
       {/* Social Media Links */}
       <div className="flex items-center mb-4 md:mb-0">
         <a href="#" className="mr-4 hover:text-blue-500 transition duration-300 transform hover:-translate-y-1">
-          <FaFacebook className="text-slate-950 text-lg" />
+          <FaFacebook className=" text-lg" />
         </a>
         <div className="border-r border-blue-600 h-6 mx-6"></div>
         <a href="#" className="mr-4 hover:text-blue-400 transition duration-300 transform hover:-translate-y-1">
-          <FaTwitter className="text-slate-950 text-lg" />
+          <FaTwitter className=" text-lg" />
         </a>
         <div className="border-r border-blue-600 h-6 mx-6"></div>
         <a href="#" className="mr-4 hover:text-pink-500 transition duration-300 transform hover:-translate-y-1">
-          <FaInstagram className="text-slate-950 text-lg" />
+          <FaInstagram className=" text-lg" />
         </a>
         <div className="border-r border-blue-600 h-6 mx-6"></div>
         <a href="#" className="hover:text-blue-400 transition duration-300 transform hover:-translate-y-1">
-          <FaLinkedin className="text-slate-950 text-lg" />
+          <FaLinkedin className=" text-lg" />
         </a>
       </div>
 
