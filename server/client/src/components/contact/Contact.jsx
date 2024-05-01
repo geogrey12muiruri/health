@@ -7,7 +7,7 @@ import { RiSearchLine } from "react-icons/ri";
 
 const ContactSection = () => {
   return (
-    <div className="bg-white text-slate-950 py-4 px-6 flex flex-col md:flex-row justify-between items-center">
+    <div className="bg-white bg-opacity-75 text-slate-950 py-4 px-6 flex flex-col md:flex-row justify-between items-center">
       {/* Social Media Links */}
       <div className="flex items-center mb-4 md:mb-0">
         <a href="#" className="mr-4 hover:text-blue-500 transition duration-300 transform hover:-translate-y-1">
