@@ -1,9 +1,12 @@
 // ContactSection.js
 
 import React from "react";
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 import { HiOutlinePhone, HiOutlineMail } from "react-icons/hi";
 import { RiSearchLine } from "react-icons/ri";
+import { FaFacebook } from "react-icons/fa6";
+import { FaSquareXTwitter } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa";
 
 const ContactSection = () => {
   return (
@@ -15,7 +18,7 @@ const ContactSection = () => {
         </a>
         <div className="border-r border-blue-600 h-6 mx-6"></div>
         <a href="#" className="mr-4 hover:text-blue-400 transition duration-300 transform hover:-translate-y-1">
-          <FaTwitter className=" text-lg" />
+          <FaSquareXTwitter  className=" text-lg" />
         </a>
         <div className="border-r border-blue-600 h-6 mx-6"></div>
         <a href="#" className="mr-4 hover:text-pink-500 transition duration-300 transform hover:-translate-y-1">
