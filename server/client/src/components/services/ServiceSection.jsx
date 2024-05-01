@@ -78,7 +78,7 @@ const ServicesSection = () => {
 
 const ServiceCard = ({ icon, title, description }) => {
   return (
-    <div className="bg-white bg-opacity-25 rounded-lg shadow-md p-6 hover:bg-blue-100">
+    <div className="bg-white rounded-lg shadow-md p-6 hover:bg-blue-100">
       <div className="flex items-center justify-center mb-4">
         {icon}
       </div>
