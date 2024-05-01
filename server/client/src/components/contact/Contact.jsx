@@ -1,30 +1,32 @@
 // ContactSection.js
 
 import React from "react";
-import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaLinkedin, FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 import { HiOutlinePhone, HiOutlineMail } from "react-icons/hi";
 import { RiSearchLine } from "react-icons/ri";
-import {FaSquareXTwitter} from 'react-icons/fa6'
+
 const ContactSection = () => {
   return (
     <div className="bg-slate-800 bg-opacity-25 text-slate-950 py-4 px-6 flex flex-col md:flex-row justify-between items-center">
       {/* Social Media Links */}
-      <div className="flex items-center mb-4 md:mb-0">
-        <a href="#" className="mr-4 hover:text-blue-500 transition duration-300 transform hover:-translate-y-1">
-          <FaFacebook className="text-blue-500 text-lg" />
-        </a>
-        <div className="border-r border-blue-600 h-6 mx-6"></div>
-        <a href="#" className="mr-4 hover:text-blue-400 transition duration-300 transform hover:-translate-y-1">
-          <FaSquareXTwitter className="text-blue-400 text-lg" />
-        </a>
-        <div className="border-r border-blue-600 h-6 mx-6"></div>
-        <a href="#" className="mr-4 hover:text-pink-500 transition duration-300 transform hover:-translate-y-1">
-          <FaInstagram className="text-pink-500 text-lg" />
-        </a>
-        <div className="border-r border-blue-600 h-6 mx-6"></div>
-        <a href="#" className="hover:text-blue-400 transition duration-300 transform hover:-translate-y-1">
-          <FaLinkedin className="text-blue-400 text-lg" />
-        </a>
+      <div className="flex items-center mb-4 md:mb-0" style={{ width: '60%', overflow: 'hidden' }}>
+        <div className="marquee" style={{ animation: 'scroll 10s linear infinite', display: 'flex', alignItems: 'center' }}>
+          <a href="#" className="mr-4 hover:text-blue-500 transition duration-300 transform hover:-translate-y-1">
+            <FaFacebook className="text-blue-500 text-lg" />
+          </a>
+          <div className="border-r border-blue-600 h-6 mx-6"></div>
+          <a href="#" className="mr-4 hover:text-blue-400 transition duration-300 transform hover:-translate-y-1">
+            <FaTwitter className="text-blue-400 text-lg" />
+          </a>
+          <div className="border-r border-blue-600 h-6 mx-6"></div>
+          <a href="#" className="mr-4 hover:text-pink-500 transition duration-300 transform hover:-translate-y-1">
+            <FaInstagram className="text-pink-500 text-lg" />
+          </a>
+          <div className="border-r border-blue-600 h-6 mx-6"></div>
+          <a href="#" className="hover:text-blue-400 transition duration-300 transform hover:-translate-y-1">
+            <FaLinkedin className="text-blue-400 text-lg" />
+          </a>
+        </div>
       </div>
 
       {/* Middle: Contact Information */}
