@@ -27,7 +27,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute inset-0 max-w-5xl mx-auto px-4 text-center text-white font-serif">
           <div className="flex flex-col h-full justify-center">
-            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 leading-tight md:leading-normal">
+            <h1 className="text-lg sm:text-2xl md:text-2xl lg:text-2xl xl:text-3xl font-bold mb-4 leading-tight md:leading-normal">
               Welcome to Medplus: Connecting Patients with Trusted Medical Professionals
             </h1>
             <p className="text-base md:text-lg mb-8">
