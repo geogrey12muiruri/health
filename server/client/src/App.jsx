@@ -10,7 +10,6 @@ import SymptomCheaker from "./components/carriculum/Carriculum";
 function Layout() {
   const { user } = useSelector((state) => state.user);
   const location = useLocation();
-  console.log(user)
 
   return user?.token ? (
     <Outlet />
@@ -21,6 +20,7 @@ function Layout() {
 
 function App() {
   const { theme } = useSelector((state) => state.theme);
+  const location = useLocation();
 
   return (
     <div data-theme={theme} className='w-full min-h-[100vh]'>
@@ -37,7 +37,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/reset-password' element={<ResetPassword />} />
       </Routes>
-      <Footer />
+      {location.pathname !== '/socials' && <Footer />}
     </div>
   );
 }
