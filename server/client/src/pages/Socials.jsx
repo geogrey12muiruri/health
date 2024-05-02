@@ -8,7 +8,6 @@ import {
   PostCard,
   ProfileCard,
   TextInput,
-  TopBar,
 } from "../components";
 
 import { Link } from "react-router-dom";
@@ -158,7 +157,7 @@ import { UserLogin } from "../redux/userSlice.js";
   return (
     <>
       <div className='w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-bgColor lg:rounded-lg h-screen overflow-hidden'>
-        <TopBar />
+      
 
         <div className='w-full flex gap-2 lg:gap-4 pt-5 pb-10 h-full'>
           {/* LEFT */}
