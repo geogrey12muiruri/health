@@ -56,7 +56,7 @@ const EmergencyServices = () => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h3 className="text-xl font-bold mb-2">Services</h3>
-      <div className="flex overflow-x-auto">
+      <div className="flex flex-wrap">
         <EmergencyServiceItem icon={faHospital} title="Emergency Services" />
         <EmergencyServiceItem icon={faUserMd} title="See a Doctor" />
         <EmergencyServiceItem icon={faBookMedical} title="Book Imaging and Labs" />
@@ -70,7 +70,7 @@ const EmergencyServices = () => {
 
 const EmergencyServiceItem = ({ icon, title }) => {
   return (
-    <div className="flex-shrink-0 bg-gray-200 rounded-lg p-4 mr-4">
+    <div className="flex-shrink-0 bg-gray-200 rounded-lg p-4 mr-4 mb-4">
       <FontAwesomeIcon icon={icon} className="text-gray-600 text-lg" />
       <p className="text-gray-800">{title}</p>
     </div>
