@@ -33,7 +33,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="text-gray-600 hover:text-gray-900 focus:outline-none"
+              className="text-slate-950 hover:text-gray-900 focus:outline-none"
             >
               <svg
                 className="h-6 w-6"
