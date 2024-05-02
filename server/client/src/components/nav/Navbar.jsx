@@ -68,12 +68,9 @@ const Navbar = () => {
 
           {/* Apply Now Button */}
           <div>
-            <Link
-              to="/register"
-              className="text-white hover:text-gray-600 hover:underline px-4 py-2 rounded-md"
-            >
+            <button className="bg-orange-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 transition duration-300">
               Join Us
-            </Link>
+            </button>
           </div>
         </div>
       </div>
