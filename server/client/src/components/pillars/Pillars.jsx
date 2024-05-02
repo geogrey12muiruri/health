@@ -9,17 +9,9 @@ const PillarsSection = () => {
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-center mb-6">Health Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <HealthServiceCard
-              icon={faBookMedical}
-              title="Health Tips"
-              description="Receive valuable health tips to maintain a healthy lifestyle."
-            />
+            <HealthTips />
             <EmergencyServices />
-            <HealthServiceCard
-              icon={faUserMd}
-              title="Our Doctors"
-              description="Meet our team of experienced and caring doctors."
-            />
+            <DoctorsSection />
           </div>
         </div>
       </div>
@@ -27,14 +19,22 @@ const PillarsSection = () => {
   );
 };
 
-const HealthServiceCard = ({ icon, title, description }) => {
+const HealthTips = () => {
+  // Assuming health tips are fetched from somewhere
+  const healthTips = ["Health Tip 1", "Health Tip 2", "Health Tip 3"];
+
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
-      <div className="text-center mb-4 text-4xl text-gray-600">
-        <FontAwesomeIcon icon={icon} />
+      <div className="text-center mb-4">
+        {/* Health tips carousel or slider goes here */}
+        <div className="flex overflow-x-auto">
+          {healthTips.map((tip, index) => (
+            <div key={index} className="flex-shrink-0 w-64 bg-gray-200 mr-4 rounded-lg p-4">
+              <p className="text-gray-800">{tip}</p>
+            </div>
+          ))}
+        </div>
       </div>
-      <h3 className="text-xl font-bold mb-2">{title}</h3>
-      <p className="text-gray-700">{description}</p>
     </div>
   );
 };
@@ -42,10 +42,11 @@ const HealthServiceCard = ({ icon, title, description }) => {
 const EmergencyServices = () => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
-      <h3 className="text-xl font-bold mb-2">Emergency Services</h3>
-      <div className="flex justify-between">
-        <EmergencyServiceItem title="See a Doctor" />
-        <EmergencyServiceItem title="Book Imaging and Labs" />
+      <h3 className="text-xl font-bold mb-2">Services</h3>
+      <div className="flex overflow-x-auto">
+        <EmergencyServiceItem icon={faHospital} title="Emergency Services" />
+        <EmergencyServiceItem icon={faUserMd} title="See a Doctor" />
+        <EmergencyServiceItem icon={faBookMedical} title="Book Imaging and Labs" />
         <div className="flex items-center">
           <FontAwesomeIcon icon={faEllipsisH} className="text-gray-600 text-lg cursor-pointer" />
         </div>
@@ -54,10 +55,35 @@ const EmergencyServices = () => {
   );
 };
 
-const EmergencyServiceItem = ({ title }) => {
+const EmergencyServiceItem = ({ icon, title }) => {
   return (
-    <div className="text-center">
-      <h3 className="text-lg font-semibold mb-2">{title}</h3>
+    <div className="flex-shrink-0 bg-gray-200 rounded-lg p-4 mr-4">
+      <FontAwesomeIcon icon={icon} className="text-gray-600 text-lg" />
+      <p className="text-gray-800">{title}</p>
+    </div>
+  );
+};
+
+const DoctorsSection = () => {
+  // Assuming doctor data is fetched from somewhere
+  const doctors = [
+    { name: "Doctor 1", image: "doctor1.jpg", description: "Description of Doctor 1" },
+    { name: "Doctor 2", image: "doctor2.jpg", description: "Description of Doctor 2" },
+    { name: "Doctor 3", image: "doctor3.jpg", description: "Description of Doctor 3" }
+  ];
+
+  return (
+    <div className="bg-white p-6 rounded-lg shadow-md">
+      <h3 className="text-xl font-bold mb-2">Our Doctors</h3>
+      <div className="flex overflow-x-auto">
+        {doctors.map((doctor, index) => (
+          <div key={index} className="flex-shrink-0 w-64 bg-gray-200 mr-4 rounded-lg p-4">
+            <img src={doctor.image} alt={doctor.name} className="w-full h-40 object-cover rounded-lg mb-2" />
+            <p className="text-gray-800 font-semibold">{doctor.name}</p>
+            <p className="text-gray-600">{doctor.description}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
