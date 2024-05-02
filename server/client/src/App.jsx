@@ -24,7 +24,7 @@ function App() {
 
   return (
     <div data-theme={theme} className='w-full min-h-[100vh]'>
-      <Contact />
+      {location.pathname !== '/socials' && <Contact />}
       <Navbar />
       <Routes>
         <Route element={<Layout />}>
