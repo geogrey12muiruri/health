@@ -7,7 +7,7 @@ import {
   Loading,
   PostCard,
   ProfileCard,
-  CollaborationBottomNavigation
+  
   TextInput,
 } from "../components";
 
@@ -18,6 +18,7 @@ import { BiImages, BiSolidVideo } from "react-icons/bi";
 import { useForm } from "react-hook-form";
 import {apiRequest, fetchPosts, handleFileUpload, likePost, deletePost, sendFriendRequest, getUserInfo} from '../utils';
 import { UserLogin } from "../redux/userSlice.js";
+import {CollaborationBottomNavigation} from '../components/collaborations/'
  const Socials = () => {
 
   const { posts } = useSelector((state) => state.posts);
