@@ -77,7 +77,7 @@ const Navbar = () => {
               <div className="flex items-center">
                 <span className="text-white mr-2">{user.username}</span>
                 <RiUserLine
-                  className="cursor-pointer text-white"
+                  className="cursor-pointer text-red-500"
                 
                 />
               </div>
