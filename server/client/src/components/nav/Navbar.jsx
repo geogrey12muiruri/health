@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Modal from "./Modal";
 import medplusLogo from "../../assets/medplus.svg"; // Import the SVG logo
+import { useSelector } from "react-redux";
+
 
 // import nav.css
 
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user } = useSelector((state) => state.user);
+
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -67,10 +71,27 @@ const Navbar = () => {
           </div>
 
           {/* Apply Now Button */}
-          <div>
-            <Link to="/login" className="text-white px-6 py-3 rounded-md hover:bg-blue-600 transition duration-300">
-              Join Us
-            </Link>
+         <div>
+            {user ? (
+              <div>
+                {/* Profile Icon that renders user details on click */}
+                <button onClick={toggleMenu} className="bg-transparent border-none outline-none">
+                  <svg
+                    className="w-6 h-6 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    {/* Your profile icon SVG code */}
+                  </svg>
+                </button>
+              </div>
+            ) : (
+              <Link to="/login" className="bg-orange-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 transition duration-300">
+                Join Us
+              </Link>
+            )}
           </div>
         </div>
       </div>
