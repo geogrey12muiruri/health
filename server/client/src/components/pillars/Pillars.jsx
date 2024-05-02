@@ -35,7 +35,7 @@ const HealthTipsCarousel = () => {
     <div className="bg-white p-6 rounded-lg shadow-md">
       <div className="text-center mb-4">
         {/* Health tips carousel with fade effect */}
-        <div className="flex justify-center items-center relative">
+        <div className="relative">
           {healthTips.map((tip, index) => (
             <div
               key={index}
@@ -56,7 +56,7 @@ const EmergencyServices = () => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h3 className="text-xl font-bold mb-2">Services</h3>
-      <div className="flex justify-between">
+      <div className="flex overflow-x-auto">
         <EmergencyServiceItem icon={faHospital} title="Emergency Services" />
         <EmergencyServiceItem icon={faUserMd} title="See a Doctor" />
         <EmergencyServiceItem icon={faBookMedical} title="Book Imaging and Labs" />
@@ -87,10 +87,10 @@ const DoctorsSection = () => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h3 className="text-xl font-bold mb-2">Our Doctors</h3>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="flex overflow-x-auto">
         {doctors.map((doctor, index) => (
-          <div key={index} className="bg-gray-200 rounded-lg p-4">
-            <img src={doctor.image} alt={doctor.name} className="w-full h-32 object-cover rounded-lg mb-2" />
+          <div key={index} className="flex-shrink-0 w-64 bg-gray-200 mr-4 rounded-lg p-4">
+            <img src={doctor.image} alt={doctor.name} className="w-full h-40 object-cover rounded-lg mb-2" />
             <p className="text-gray-800 font-semibold">{doctor.name}</p>
             <p className="text-gray-600">{doctor.description}</p>
           </div>
