@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAmbulance, faUserMd, faBookMedical, faEllipsisH } from "@fortawesome/free-solid-svg-icons";
+import { faAmbulance, faUserMd, faBookMedical, faEllipsisH, faEnvelope, faSearch, faCalendar } from "@fortawesome/free-solid-svg-icons";
 
 const PillarsSection = () => {
   return (
@@ -15,6 +15,7 @@ const PillarsSection = () => {
           </div>
         </div>
       </div>
+      <MobileNavbar />
     </section>
   );
 };
@@ -57,9 +58,9 @@ const EmergencyServices = () => {
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h3 className="text-xl font-bold mb-2">Services</h3>
       <div className="flex flex-wrap">
-        <EmergencyServiceItem icon={faAmbulance} title="Emergency Services" />
+        <EmergencyServiceItem icon={faAmbulance} title="Ambulance" />
         <EmergencyServiceItem icon={faUserMd} title="See a Doctor" />
-        <EmergencyServiceItem icon={faBookMedical} title="Book Imaging and Labs" />
+        <EmergencyServiceItem icon={faBookMedical} title="Imaging & Labs" />
         <div className="flex items-center">
           <FontAwesomeIcon icon={faEllipsisH} className="text-gray-600 text-lg cursor-pointer" />
         </div>
@@ -95,6 +96,22 @@ const DoctorsSection = () => {
             <p className="text-gray-600">{doctor.description}</p>
           </div>
         ))}
+      </div>
+    </div>
+  );
+};
+
+const MobileNavbar = () => {
+  return (
+    <div className="fixed bottom-0 left-0 w-full bg-white shadow-md p-4 flex justify-around items-center md:hidden">
+      <div>
+        <FontAwesomeIcon icon={faEnvelope} className="text-gray-600 text-lg cursor-pointer" />
+      </div>
+      <div>
+        <FontAwesomeIcon icon={faSearch} className="text-gray-600 text-lg cursor-pointer" />
+      </div>
+      <div>
+        <FontAwesomeIcon icon={faCalendar} className="text-gray-600 text-lg cursor-pointer" />
       </div>
     </div>
   );
