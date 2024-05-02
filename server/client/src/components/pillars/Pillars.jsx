@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserMd, faBookMedical, faHospital, faEllipsisH } from "@fortawesome/free-solid-svg-icons";
+import { faAmbulance, faUserMd, faBookMedical, faEllipsisH } from "@fortawesome/free-solid-svg-icons";
 
 const PillarsSection = () => {
   return (
@@ -57,7 +57,7 @@ const EmergencyServices = () => {
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h3 className="text-xl font-bold mb-2">Services</h3>
       <div className="flex flex-wrap">
-        <EmergencyServiceItem icon={faHospital} title="Emergency Services" />
+        <EmergencyServiceItem icon={faAmbulance} title="Emergency Services" />
         <EmergencyServiceItem icon={faUserMd} title="See a Doctor" />
         <EmergencyServiceItem icon={faBookMedical} title="Book Imaging and Labs" />
         <div className="flex items-center">
