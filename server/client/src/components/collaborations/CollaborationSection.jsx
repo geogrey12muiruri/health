@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { BsHouseDoor, BsPlusSquare, BsSearch, BsChatDots } from "react-icons/bs";
 
-const BottomNavigation = () => {
+const CollaborationSection = () => {
   return (
     <nav className="fixed bottom-0 left-0 right-0 bg-white shadow flex justify-around items-center py-2">
       <Link to="/" className="text-2xl text-gray-500">
@@ -21,10 +21,4 @@ const BottomNavigation = () => {
   );
 };
 
-const CollaborationBottomNavigation = () => {
-  return (
-    <BottomNavigation />
-  );
-};
-
-export default CollaborationBottomNavigation;
+export default CollaborationSection;
