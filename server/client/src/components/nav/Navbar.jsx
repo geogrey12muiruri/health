@@ -14,7 +14,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-blue-950 shadow-lg font-mono text-white sticky top-0 z-50">
+    <nav className="bg-blue-600 shadow-lg font-mono text-white sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-2">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -72,7 +72,7 @@ const Navbar = () => {
           <div>
             <Link
               to="/register"
-              className="text-slate-950 hover:text-gray-600 hover:underline px-4 py-2 rounded-md"
+              className="text-white hover:text-gray-600 hover:underline px-4 py-2 rounded-md"
             >
               Join Us
             </Link>
