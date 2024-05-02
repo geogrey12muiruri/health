@@ -30,18 +30,14 @@ const HeroSection = () => {
             <h1 className="text-lg sm:text-2xl md:text-2xl lg:text-2xl xl:text-3xl font-bold mt-4 leading-tight md:leading-normal">
               Welcome to Medplus Health
             </h1>
-            <p className="text-sm md:text-sm mb-8">Connecting Patients with Trusted Medical Professionals
-            
-            
-            </p>
+            <p className="text-sm md:text-sm mb-8">Connecting Patients with Trusted Medical Professionals</p>
             <div className="mt-4">
               <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded mr-4">
                 Learn More
               </button>
-              <button>
-              button className="bg-orange-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 transition duration-300">
-              Contact Us
-            </button>
+              <button className="bg-orange-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 transition duration-300">
+                Contact Us
+              </button>
             </div>
           </div>
         </div>
