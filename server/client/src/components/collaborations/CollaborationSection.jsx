@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { BsHouseDoor, BsPlusSquare, BsSearch, BsChatDots } from "react-icons/bs";
-import collaborationImage from "../../assets/collaboration.jpg";
 
 const BottomNavigation = () => {
   return (
@@ -22,24 +21,10 @@ const BottomNavigation = () => {
   );
 };
 
-const CollaborationHeroSection = () => {
+const CollaborationBottomNavigation = () => {
   return (
-    <section className="relative">
-      {/* Background Image */}
-      <img src={collaborationImage} alt="Collaboration" className="absolute inset-0 object-cover w-full h-full z-0" />
-
-      <div className="relative z-10">
-        {/* Hero Text */}
-        <div className="container mx-auto px-4 text-center py-20 text-white">
-          <h1 className="text-4xl font-bold mb-4">Collaborating with Top-Notch Experts</h1>
-          <p className="text-lg mb-8">Delivering Quality Training to Our Learners Worldwide</p>
-        </div>
-
-        {/* Bottom Navigation */}
-        <BottomNavigation />
-      </div>
-    </section>
+    <BottomNavigation />
   );
 };
 
-export default CollaborationHeroSection;
+export default CollaborationBottomNavigation;
