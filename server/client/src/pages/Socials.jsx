@@ -18,7 +18,7 @@ import { BiImages, BiSolidVideo } from "react-icons/bi";
 import { useForm } from "react-hook-form";
 import {apiRequest, fetchPosts, handleFileUpload, likePost, deletePost, sendFriendRequest, getUserInfo} from '../utils';
 import { UserLogin } from "../redux/userSlice.js";
-import {CollaborationSection} from '../components/collaborations/CollaborationSection'
+import CollaborationSection from '../components/collaborations/CollaborationSection'
  const Socials = () => {
 
   const { posts } = useSelector((state) => state.posts);
@@ -381,7 +381,7 @@ import {CollaborationSection} from '../components/collaborations/CollaborationSe
       </div>
 
       {edit && <EditProfile />}
-      <CollaborationBottomNavigation />
+      <CollaborationSection />
     </>
   );
 };
