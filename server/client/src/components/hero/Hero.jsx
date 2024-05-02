@@ -28,9 +28,9 @@ const HeroSection = () => {
         <div className="absolute inset-0 max-w-5xl mx-auto px-4 text-center text-white font-serif">
           <div className="flex flex-col h-full justify-center">
             <h1 className="text-lg sm:text-2xl md:text-2xl lg:text-2xl xl:text-3xl font-bold mt-4 leading-tight md:leading-normal">
-              Welcome to Medplus: Connecting Patients with Trusted Medical Professionals
+              Welcome to Medplus Health
             </h1>
-            <p className="text-sm md:text-sm mb-8">Experience expert advice and personalized treatment from the comfort of your home.
+            <p className="text-sm md:text-sm mb-8">Connecting Patients with Trusted Medical Professionals
             
             
             </p>
