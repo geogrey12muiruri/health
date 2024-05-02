@@ -7,6 +7,7 @@ import {
   Loading,
   PostCard,
   ProfileCard,
+  CollaborationBottomNavigation
   TextInput,
 } from "../components";
 
@@ -379,6 +380,7 @@ import { UserLogin } from "../redux/userSlice.js";
       </div>
 
       {edit && <EditProfile />}
+      <CollaborationBottomNavigation />
     </>
   );
 };
