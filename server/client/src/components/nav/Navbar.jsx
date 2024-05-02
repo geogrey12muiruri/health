@@ -68,9 +68,9 @@ const Navbar = () => {
 
           {/* Apply Now Button */}
           <div>
-            <button className="bg-orange-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 transition duration-300">
+            <Link to="/login" className="text-white px-6 py-3 rounded-md hover:bg-blue-600 transition duration-300">
               Join Us
-            </button>
+            </Link>
           </div>
         </div>
       </div>
