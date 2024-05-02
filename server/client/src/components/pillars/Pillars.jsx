@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserMd, faBookMedical, faHospital } from "@fortawesome/free-solid-svg-icons";
+import { faUserMd, faBookMedical, faHospital, faEllipsisH } from "@fortawesome/free-solid-svg-icons";
 
 const PillarsSection = () => {
   return (
@@ -14,11 +14,7 @@ const PillarsSection = () => {
               title="Health Tips"
               description="Receive valuable health tips to maintain a healthy lifestyle."
             />
-            <HealthServiceCard
-              icon={faHospital}
-              title="Emergency Services"
-              description="Access emergency medical assistance at any time."
-            />
+            <EmergencyServices />
             <HealthServiceCard
               icon={faUserMd}
               title="Our Doctors"
@@ -39,6 +35,29 @@ const HealthServiceCard = ({ icon, title, description }) => {
       </div>
       <h3 className="text-xl font-bold mb-2">{title}</h3>
       <p className="text-gray-700">{description}</p>
+    </div>
+  );
+};
+
+const EmergencyServices = () => {
+  return (
+    <div className="bg-white p-6 rounded-lg shadow-md">
+      <h3 className="text-xl font-bold mb-2">Emergency Services</h3>
+      <div className="flex justify-between">
+        <EmergencyServiceItem title="See a Doctor" />
+        <EmergencyServiceItem title="Book Imaging and Labs" />
+        <div className="flex items-center">
+          <FontAwesomeIcon icon={faEllipsisH} className="text-gray-600 text-lg cursor-pointer" />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const EmergencyServiceItem = ({ title }) => {
+  return (
+    <div className="text-center">
+      <h3 className="text-lg font-semibold mb-2">{title}</h3>
     </div>
   );
 };
