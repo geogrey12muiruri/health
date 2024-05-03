@@ -65,46 +65,95 @@ const EmergencyServices = () => {
         <EmergencyServiceItem icon={FaFlask} title="Lab & Radiology" link="/lab-radiology" />
       </div>
     </div>
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { FaHome, FaEnvelope, FaSearch, FaCalendar, FaAmbulance, FaUserMd, FaFlask } from 'react-icons/fa';
+import SymptomChecker from '../../components/carriculum/Carriculum';
+
+const PillarsSection = () => {
+  return (
+    <section className="py-10 bg-blue-200">
+      <div className="container mx-auto px-4">
+        <div className="mb-8">
+          <h2 className="text-3xl font-bold text-center mb-6">Health Services</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <SymptomCheckerWithAnimation />
+            <EmergencyServicesWithAnimation />
+            <DoctorsSectionWithAnimation />
+          </div>
+        </div>
+      </div>
+      <MobileNavbar />
+    </section>
   );
 };
 
+const slideInVariants = {
+  hidden: { y: 100, opacity: 0 },
+  visible: { y: 0, opacity: 1 },
+};
 
-const EmergencyServiceItem = ({ icon: Icon, title, link }) => {
-  const itemVariants = {
-    hidden: {
-      x: 100,
-      opacity: 0,
-    },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        delay: 0.2, // Delay each item's animation by 0.2 seconds
-        type: "spring",
-        stiffness: 100,
-        damping: 10,
-      },
-    },
-  };
-
+const SymptomCheckerWithAnimation = () => {
   return (
     <motion.div
-      variants={itemVariants}
       initial="hidden"
       animate="visible"
-      className="flex-shrink-0 bg-blue-200 bg-opacity-75 rounded-lg p-4 mr-4 mb-4"
+      variants={slideInVariants}
+      className="bg-white p-6 rounded-lg shadow-md"
     >
-      <Link to={link} className="flex items-center">
-        <Icon className="text-gray-600 text-lg" />
-        <p className="text-gray-800 ml-2">{title}</p>
-      </Link>
+      <SymptomChecker />
     </motion.div>
   );
 };
 
+const EmergencyServicesWithAnimation = () => {
+  return (
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={slideInVariants}
+      className="bg-white p-6 rounded-lg shadow-md"
+    >
+      <EmergencyServices />
+    </motion.div>
+  );
+};
 
+const EmergencyServices = () => {
+  return (
+    <div>
+      <h3 className="text-xl font-bold mb-2">Services</h3>
+      <div className="flex flex-wrap">
+        <EmergencyServiceItem icon={FaAmbulance} title="Ambulance" link="/ambulance" />
+        <EmergencyServiceItem icon={FaUserMd} title="See Doctor" link="/doctor" />
+        <EmergencyServiceItem icon={FaFlask} title="Lab & Radiology" link="/lab-radiology" />
+      </div>
+    </div>
+  );
+};
 
+const EmergencyServiceItem = ({ icon: Icon, title, link }) => {
+  return (
+    <Link to={link} className="flex-shrink-0 bg-blue-200 bg-opacity-75 rounded-lg p-4 mr-4 mb-4">
+      <Icon className="text-gray-600 text-lg" />
+      <p className="text-gray-800">{title}</p>
+    </Link>
+  );
+};
 
+const DoctorsSectionWithAnimation = () => {
+  return (
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={slideInVariants}
+      className="bg-white p-6 rounded-lg shadow-md overflow-x-auto"
+    >
+      <DoctorsSection />
+    </motion.div>
+  );
+};
 
 const DoctorsSection = () => {
   const doctors = [
@@ -116,25 +165,19 @@ const DoctorsSection = () => {
   ];
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md overflow-x-auto">
-      <h3 className="text-xl font-bold mb-2">Our Doctors</h3>
-      <div className="flex flex-nowrap flex-wrap lg:flex-no-wrap">
-        {doctors.map((doctor, index) => (
-          <div key={index} className="flex-shrink-0 w-48 lg:w-64 bg-gray-200 rounded-lg p-4 mr-4 mb-4">
-            <img src={doctor.image} alt={doctor.name} className="w-full h-32 lg:h-40 object-cover rounded-lg mb-2" />
-            <div className="flex flex-col justify-center">
-              <p className="text-gray-800 font-semibold">{doctor.name}</p>
-              <p className="text-gray-600">{doctor.description}</p>
-            </div>
+    <div className="flex flex-nowrap flex-wrap lg:flex-no-wrap">
+      {doctors.map((doctor, index) => (
+        <div key={index} className="flex-shrink-0 w-48 lg:w-64 bg-gray-200 rounded-lg p-4 mr-4 mb-4">
+          <img src={doctor.image} alt={doctor.name} className="w-full h-32 lg:h-40 object-cover rounded-lg mb-2" />
+          <div className="flex flex-col justify-center">
+            <p className="text-gray-800 font-semibold">{doctor.name}</p>
+            <p className="text-gray-600">{doctor.description}</p>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   );
 };
-
-
-
 
 const MobileNavbar = () => {
   return (
