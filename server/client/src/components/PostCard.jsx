@@ -307,50 +307,39 @@ const handleViewIncrement = () => {
   )}
 </div>
 
-      <div
-        className='mt-4 flex justify-between items-center px-3 py-2 text-ascent-2
-      text-base border-t border-[#66666645]'
-      >
-        <p className='flex gap-2 items-center text-base cursor-pointer'
-        onClick={() => handleLike("/posts/like/" + post?._id)}
-        
-        >
-          {post?.likes?.includes(user?._id) ? (
-            <BiSolidLike size={20} color='blue' />
-          ) : (
-            <BiLike size={20} />
-          )}
-          {post?.likes?.length} Likes
-        </p>
-        <div className='flex gap-2 items-center text-base cursor-pointer'>
-  <BiShow size={20} />
-  {post?.views} Views
-</div>
+     <div className='mt-4 flex justify-between items-center px-3 py-2 text-ascent-2 text-base border-t border-[#66666645]'>
+  {/* Like functionality */}
+  <p className='flex gap-2 items-center text-base cursor-pointer' onClick={() => handleLike("/posts/like/" + post?._id)}>
+    {post?.likes?.includes(user?._id) ? <BiSolidLike size={20} color='blue' /> : <BiLike size={20} />}
+    {post?.likes?.length} Likes
+  </p>
 
+  {/* Views count */}
+  <div className='flex gap-2 items-center text-base cursor-pointer'>
+    <BiShow size={20} />
+    {post?.views} Views
+  </div>
 
+  {/* Share functionality */}
+  <p className='flex gap-2 items-center text-base cursor-pointer'>
+    <BiShareAlt size={20} />
+    Share
+  </p>
 
-        <p
-          className='flex gap-2 items-center text-base cursor-pointer'
-          onClick={() => {
-            setShowComments(showComments === post._id ? null : post._id);
-            getComments(post?._id);
-          }}
-        >
-          <BiComment size={20} />
-          {post?.comments?.length} Comments
-        </p>
+  {/* Comments functionality */}
+  <p className='flex gap-2 items-center text-base cursor-pointer' onClick={() => { setShowComments(showComments === post._id ? null : post._id); getComments(post?._id); }}>
+    <BiComment size={20} />
+    {post?.comments?.length} Comments
+  </p>
 
-        {user?._id === post?.userId?._id && (
-          <div
-            className='flex gap-1 items-center text-base text-ascent-1 cursor-pointer'
-            onClick={() => deletePost(post?._id)}
-          >
-            <MdOutlineDeleteOutline size={20} />
-            <span>Delete</span>
-          </div>
-        )}
-      </div>
-
+  {/* Delete button (visible only to the post owner) */}
+  {user?._id === post?.userId?._id && (
+    <div className='flex gap-1 items-center text-base text-ascent-1 cursor-pointer' onClick={() => deletePost(post?._id)}>
+      <MdOutlineDeleteOutline size={20} />
+      <span>Delete</span>
+    </div>
+  )}
+</div>      
       {/* COMMENTS */}
       {showComments === post?._id && (
         <div className='w-full mt-4 border-t border-[#66666645] pt-4 '>
