@@ -182,7 +182,7 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
             className='w-14 h-14 object-cover rounded-full'
           />
         </Link>
-        <Link to={"/post/" + post?._id} onClick={handleViewIncrement}>
+        <Link to={"/post/" + post?._id} >
           <p className='font-medium text-lg text-ascent-1'>{post?.title}</p>
         </Link>
         <div className='w-full flex justify-between'>
@@ -199,7 +199,7 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
           </span>
         </div>
       </div>
-      <div onClick={handleViewIncrement} className='post-content'>
+      <div className='post-content'>
         <p className='text-ascent-2'>
           {showAll === post?._id
             ? post?.description
