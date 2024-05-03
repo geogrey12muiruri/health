@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faEnvelope, faSearch, faCalendar, faAmbulance, faFlask } from 'react-icons/fa';
+import React from "react";
 import { Link } from "react-router-dom";
+import { FaHome, FaEnvelope, FaSearch, FaCalendar } from 'react-icons/fa';
 
 const PillarsSection = () => {
   return (
@@ -59,18 +58,18 @@ const EmergencyServices = () => {
     <div className="bg-blue-200 p-6 rounded-lg shadow-md">
       <h3 className="text-xl font-bold mb-2">Services</h3>
       <div className="flex flex-wrap">
-        <EmergencyServiceItem icon={faAmbulance} title="Ambulance" link="/ambulance" />
-        <EmergencyServiceItem icon={faUserMd} title="See Doctor" link="/doctor" />
-        <EmergencyServiceItem icon={faFlask} title="Lab & Radiology" link="/lab-radiology" />
+        <EmergencyServiceItem icon={FaAmbulance} title="Ambulance" link="/ambulance" />
+        <EmergencyServiceItem icon={FaUserMd} title="See Doctor" link="/doctor" />
+        <EmergencyServiceItem icon={FaFlask} title="Lab & Radiology" link="/lab-radiology" />
       </div>
     </div>
   );
 };
 
-const EmergencyServiceItem = ({ icon, title, link }) => {
+const EmergencyServiceItem = ({ icon: Icon, title, link }) => {
   return (
     <Link to={link} className="flex-shrink-0 bg-white bg-opacity-75 rounded-lg p-4 mr-4 mb-4">
-      <FontAwesomeIcon icon={icon} className="text-gray-600 text-lg" />
+      <Icon className="text-gray-600 text-lg" />
       <p className="text-gray-800">{title}</p>
     </Link>
   );
@@ -103,16 +102,16 @@ const MobileNavbar = () => {
   return (
     <div className="fixed bottom-0 left-0 w-full bg-white shadow-md p-4 flex justify-around items-center md:hidden">
       <Link to="/home">
-        <FontAwesomeIcon icon={faHome} className="text-gray-600 text-lg cursor-pointer" />
+        <FaHome className="text-gray-600 text-lg cursor-pointer" />
       </Link>
       <Link to="/messages">
-        <FontAwesomeIcon icon={faEnvelope} className="text-gray-600 text-lg cursor-pointer" />
+        <FaEnvelope className="text-gray-600 text-lg cursor-pointer" />
       </Link>
       <Link to="/search">
-        <FontAwesomeIcon icon={faSearch} className="text-gray-600 text-lg cursor-pointer" />
+        <FaSearch className="text-gray-600 text-lg cursor-pointer" />
       </Link>
       <Link to="/bookings">
-        <FontAwesomeIcon icon={faCalendar} className="text-gray-600 text-lg cursor-pointer" />
+        <FaCalendar className="text-gray-600 text-lg cursor-pointer" />
       </Link>
     </div>
   );
