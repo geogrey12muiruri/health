@@ -398,7 +398,7 @@ import CollaborationSection from '../components/collaborations/CollaborationSect
         </div>
       </form>
     </div>
-  </div>
+  
 )}
                 </div>
               </div>
