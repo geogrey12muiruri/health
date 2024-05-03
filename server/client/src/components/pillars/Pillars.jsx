@@ -69,22 +69,35 @@ const EmergencyServices = () => {
 };
 
 const EmergencyServiceItem = ({ icon: Icon, title, link }) => {
+  const itemVariants = {
+    hidden: {
+      x: 100,
+      opacity: 0,
+    },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        delay: 0.2, // Delay each item's animation by 0.2 seconds
+      },
+    },
+  };
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="flex-shrink-0 bg-white bg-opacity-75 rounded-lg p-4 mr-4 mb-4"
+      variants={itemVariants}
+      initial="hidden"
+      animate="visible"
+      className="flex-shrink-0 bg-blue-200 bg-opacity-75 rounded-lg p-4 mr-4 mb-4"
     >
       <Link to={link} className="flex items-center">
-        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-          <Icon className="text-gray-600 text-lg" />
-        </motion.div>
+        <Icon className="text-gray-600 text-lg" />
         <p className="text-gray-800 ml-2">{title}</p>
       </Link>
     </motion.div>
   );
 };
+
 
 
 
