@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaHome, FaEnvelope, FaSearch, FaCalendar, FaAmbulance, FaUserMd, FaFlask } from 'react-icons/fa';
+import SymptomChecker from '..components/carriculum/Carriculum';
 
 const PillarsSection = () => {
   return (
@@ -9,7 +10,7 @@ const PillarsSection = () => {
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-center mb-6">Health Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <HealthTipsCarousel />
+            <SymptomChecker />
             <EmergencyServices />
             <DoctorsSection />
           </div>
