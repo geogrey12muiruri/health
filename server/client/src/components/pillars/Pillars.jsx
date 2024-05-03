@@ -1,5 +1,5 @@
-import React from "react";
-import { faEnvelope, faSearch, faCalendar, faUserMd } from 'react-icons/fa';
+import React, { useState, useEffect } from "react";
+import { faHome, faEnvelope, faSearch, faCalendar } from 'react-icons/fa';
 
 const PillarsSection = () => {
   return (
@@ -8,7 +8,7 @@ const PillarsSection = () => {
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-center mb-6">Health Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <SymptomsInput />
+            <HealthTipsCarousel />
             <EmergencyServices />
             <DoctorsSection />
           </div>
@@ -19,25 +19,35 @@ const PillarsSection = () => {
   );
 };
 
-const SymptomsInput = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle the form submission, like sending the symptoms to a backend server
-  };
+const HealthTipsCarousel = () => {
+  const [currentTipIndex, setCurrentTipIndex] = useState(0);
+  const healthTips = ["Health Tip 1", "Health Tip 2", "Health Tip 3"];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTipIndex((prevIndex) => (prevIndex === healthTips.length - 1 ? 0 : prevIndex + 1));
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [healthTips.length]);
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
-      <h3 className="text-xl font-bold mb-2">Connect to a Doctor</h3>
-      <p className="text-gray-700 mb-4">Hi John, how are you feeling today? Let's connect you to a doctor.</p>
-      <form onSubmit={handleSubmit}>
-        <textarea
-          className="w-full h-32 p-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-          placeholder="Enter symptoms separated by commas..."
-        ></textarea>
-        <button type="submit" className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
-          Check Symptoms
-        </button>
-      </form>
+      <div className="text-center mb-4">
+        {/* Health tips carousel with fade effect */}
+        <div className="relative">
+          {healthTips.map((tip, index) => (
+            <div
+              key={index}
+              className={`absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ${
+                index === currentTipIndex ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <div className="bg-gray-200 rounded-lg p-4">{tip}</div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
