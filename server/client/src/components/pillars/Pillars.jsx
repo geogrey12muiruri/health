@@ -81,18 +81,35 @@ const EmergencyServices = () => {
 
 const EmergencyServiceItem = ({ icon: Icon, title, link }) => {
   const itemVariants = {
-    hidden: { opacity: 0, x: 100 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: {
-        delay: 1.3, // Adjust the delay as needed
+        delay: 0.3, // Adjust the delay as needed
         type: "spring",
         stiffness: 100,
         bounce: 0.5,
       },
     },
   };
+
+  return (
+    <motion.div
+      variants={itemVariants}
+      initial="hidden"
+      animate="visible"
+      className="flex flex-col items-center bg-blue-200 bg-opacity-75 rounded-lg p-4 mr-4 mb-4"
+    >
+      <Link to={link} className="flex items-center">
+        <Icon className="text-gray-600 text-lg" />
+      </Link>
+      <p className="text-gray-800 mt-2 text-center">{title}</p>
+    </motion.div>
+  );
+};
+
+export default EmergencyServices;
 
   return (
     <motion.div
