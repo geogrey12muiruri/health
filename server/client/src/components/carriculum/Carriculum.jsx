@@ -20,23 +20,24 @@ const ConnectDoctorComponent = ({ userName, profileImage }) => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md">
-      <div className="flex items-center justify-between mb-4">
+    <div className="bg-white p-4 rounded-md shadow-md">
+      <div className="flex items-center justify-between mb-2">
         <div>
-          <h3 className="text-xl font-bold">Hi {userName}, how are you feeling?</h3>
+          <h3 className="text-lg font-bold">Hi {userName}, how are you feeling?</h3>
           <p>Let's connect you to a doctor.</p>
         </div>
         {profileImage && (
-          <img src={profileImage} alt="User profile" className="w-12 h-12 rounded-full" />
+          <img src={profileImage} alt="User profile" className="w-10 h-10 rounded-full" />
         )}
       </div>
-      <div className="mb-4">
-        <textarea
+      <div className="mb-2">
+        <input
+          type="text"
           value={symptoms}
           onChange={handleInputChange}
           placeholder="Enter your symptoms (separated by commas)"
-          className="w-full h-32 border border-gray-300 rounded-md p-2 resize-none"
-        ></textarea>
+          className="w-full h-12 border border-gray-300 rounded-md p-2"
+        />
       </div>
       <button
         onClick={handleSearch}
@@ -45,8 +46,8 @@ const ConnectDoctorComponent = ({ userName, profileImage }) => {
         Search
       </button>
       {recommendation && (
-        <div className="mt-4">
-          <h4 className="text-lg font-bold mb-2">Recommended Doctor:</h4>
+        <div className="mt-2">
+          <h4 className="text-md font-bold mb-1">Recommended Doctor:</h4>
           <p>{recommendation}</p>
         </div>
       )}
