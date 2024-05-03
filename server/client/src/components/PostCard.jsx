@@ -1,4 +1,4 @@
-import React, { useRef,  useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import { NoProfile } from "../assets";
@@ -10,8 +10,6 @@ import Loading from "./Loading";
 import CustomButton from "./CustomButton";
 import { BiShow } from "react-icons/bi";
 import { CiShare2 } from "react-icons/ci";
-
-
 import { apiRequest } from "../utils";
 
 const getPostComments = async (id) => {
@@ -25,8 +23,7 @@ const getPostComments = async (id) => {
   } catch (error) {
     console.log(error)
   }
- 
-}
+};
 
 const ReplyCard = ({ reply, user, handleLike }) => {
   return (
@@ -64,7 +61,7 @@ const ReplyCard = ({ reply, user, handleLike }) => {
             ) : (
               <BiLike size={20} />
             )}
-            {reply?.likes?.length} Likes
+            {reply?.likes?.length}
           </p>
         </div>
       </div>
@@ -87,7 +84,7 @@ const CommentForm = ({ user, id, replyAt, getComments }) => {
   const onSubmit = async (data) => {
     setLoading(true);
     setErrMsg("");
-    try{
+    try {
       const URL = !replyAt
       ? "/posts/comment/" + id
       : "/posts/reply-comment/" + id;
@@ -96,30 +93,25 @@ const CommentForm = ({ user, id, replyAt, getComments }) => {
         comment: data?.comment,
         from: user?.firstName + " " + user.lastName,
         replyAt: replyAt,
-
-      }
+      };
 
       const res = await apiRequest({
         url: URL,
         data: newData,
         token: user?.token,
         method: "POST",
-      })
-      if(res?.status === "failed") {
-        setErrMsg(res)
-      }else {
-        reset({
-          comment: "",
+      });
 
-        })
+      if(res?.status === "failed") {
+        setErrMsg(res);
+      } else {
+        reset({ comment: "" });
         setErrMsg("");
         await getComments();
-
       }
       setLoading(false);
-
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
@@ -134,7 +126,6 @@ const CommentForm = ({ user, id, replyAt, getComments }) => {
           alt='User Image'
           className='w-10 h-10 rounded-full object-cover'
         />
-
         <TextInput
           name='comment'
           styles='w-full rounded-full py-3'
@@ -182,67 +173,56 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
   const [showComments, setShowComments] = useState(0);
   const postRef = useRef(null);
 
-
-
   const getComments = async (id) => {
     setReplyComments(0);
-
-    const result = await getPostComments (id);
-
+    const result = await getPostComments(id);
     setComments(result);
     setLoading(false);
   };
+
   const handleLike = async (uri) => {
     await likePost(uri);
     getComments(post?._id);
   };
 
-useEffect(() => {
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
-        // Increment the views property locally
-        setPost((prevPost) => ({
-          ...prevPost,
-          views: prevPost.views + 1,
-        }));
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setPost((prevPost) => ({
+            ...prevPost,
+            views: prevPost.views + 1,
+          }));
+          observer.unobserve(postRef.current);
+        }
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.5,
+      }
+    );
 
-        // Unobserve the postRef to avoid duplicate increments
+    if (postRef.current) {
+      observer.observe(postRef.current);
+    }
+
+    return () => {
+      if (postRef.current) {
         observer.unobserve(postRef.current);
       }
-    },
-    {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.5, // Trigger when at least 50% of the post is visible
-    }
-  );
+    };
+  }, []);
 
-  if (postRef.current) {
-    observer.observe(postRef.current);
-  }
-
-  return () => {
-    if (postRef.current) {
-      observer.unobserve(postRef.current);
-    }
+  const handleViewIncrement = () => {
+    setPost((prevPost) => ({
+      ...prevPost,
+      views: prevPost.views + 1,
+    }));
   };
-}, []);
-
-const handleViewIncrement = () => {
-  // Increment the views property locally
-  setPost((prevPost) => ({
-    ...prevPost,
-    views: prevPost.views + 1,
-  }));
-};
-
-
-
-
 
   return (
-    <div ref={postRef}  className='mb-2 bg-primary p-4 rounded-xl'>
+    <div ref={postRef} className='mb-2 bg-primary p-4 rounded-xl'>
       <div className='flex gap-3 items-center mb-2'>
         <Link to={"/profile/" + post?.userId?._id}>
           <img
@@ -253,11 +233,10 @@ const handleViewIncrement = () => {
         </Link>
 
         <Link to={"/post/" + post?._id} onClick={handleViewIncrement}>
-  <p className='font-medium text-lg text-ascent-1'>
-    {post?.title}
-  </p>
-</Link>
-
+          <p className='font-medium text-lg text-ascent-1'>
+            {post?.title}
+          </p>
+        </Link>
 
         <div className='w-full flex justify-between'>
           <div className=''>
@@ -276,72 +255,80 @@ const handleViewIncrement = () => {
       </div>
 
       <div onClick={handleViewIncrement} className="post-content">
-  <p className='text-ascent-2'>
-    {showAll === post?._id
-      ? post?.description
-      : post?.description.slice(0, 300)}
+        <p className='text-ascent-2'>
+          {showAll === post?._id
+            ? post?.description
+            : post?.description.slice(0, 300)}
 
-    {post?.description?.length > 301 &&
-      (showAll === post?._id ? (
-        <span
-          className='text-blue ml-2 font-medium cursor-pointer'
-          onClick={() => setShowAll(0)}
+          {post?.description?.length > 301 &&
+            (showAll === post?._id ? (
+              <span
+                className='text-blue ml-2 font-medium cursor-pointer'
+                onClick={() => setShowAll(0)}
+              >
+                Show Less
+              </span>
+            ) : (
+              <span
+                className='text-blue ml-2 font-medium cursor-pointer'
+                onClick={() => setShowAll(post?._id)}
+              >
+                Show More
+              </span>
+            ))}
+        </p>
+
+        {post?.image && (
+          <img
+            src={post?.image}
+            alt='post image'
+            className='w-full mt-2 rounded-lg'
+          />
+        )}
+      </div>
+
+      <div className='mt-4 flex justify-between items-center px-3 py-2 text-ascent-2 text-base border-t border-[#66666645]'>
+        <p
+          className='flex gap-2 items-center text-base cursor-pointer'
+          onClick={() => handleLike("/posts/like/" + post?._id)}
         >
-          Show Less
-        </span>
-      ) : (
-        <span
-          className='text-blue ml-2 font-medium cursor-pointer'
-          onClick={() => setShowAll(post?._id)}
+          {post?.likes?.includes(user?._id) ? (
+            <BiSolidLike size={20} color='blue' />
+          ) : (
+            <BiLike size={20} />
+          )}
+          {post?.likes?.length}
+        </p>
+
+        <div className='flex gap-2 items-center text-base cursor-pointer'>
+          <BiShow size={20} />
+          {post?.views} Views
+        </div>
+
+        <p className='flex gap-2 items-center text-base cursor-pointer'>
+          <CiShare2 size={20} />
+          Share
+        </p>
+
+        <p
+          className='flex gap-2 items-center text-base cursor-pointer'
+          onClick={() => { setShowComments(showComments === post._id ? null : post._id); getComments(post?._id); }}
         >
-          Show More
-        </span>
-      ))}
-  </p>
+          <BiComment size={20} />
+          {post?.comments?.length}
+        </p>
 
-  {post?.image && (
-    <img
-      src={post?.image}
-      alt='post image'
-      className='w-full mt-2 rounded-lg'
-    />
-  )}
-</div>
+        {user?._id === post?.userId?._id && (
+          <div
+            className='flex gap-1 items-center text-base text-ascent-1 cursor-pointer'
+            onClick={() => deletePost(post?._id)}
+          >
+            <MdOutlineDeleteOutline size={20} />
+            <span>Delete</span>
+          </div>
+        )}
+      </div>
 
-     <div className='mt-4 flex justify-between items-center px-3 py-2 text-ascent-2 text-base border-t border-[#66666645]'>
-  {/* Like functionality */}
-  <p className='flex gap-2 items-center text-base cursor-pointer' onClick={() => handleLike("/posts/like/" + post?._id)}>
-    {post?.likes?.includes(user?._id) ? <BiSolidLike size={20} color='blue' /> : <BiLike size={20} />}
-    {post?.likes?.length} Likes
-  </p>
-
-  {/* Views count */}
-  <div className='flex gap-2 items-center text-base cursor-pointer'>
-    <BiShow size={20} />
-    {post?.views} Views
-  </div>
-
-  {/* Share functionality */}
-  <p className='flex gap-2 items-center text-base cursor-pointer'>
-    <CiShare2 size={20} />
-    Share
-  </p>
-
-  {/* Comments functionality */}
-  <p className='flex gap-2 items-center text-base cursor-pointer' onClick={() => { setShowComments(showComments === post._id ? null : post._id); getComments(post?._id); }}>
-    <BiComment size={20} />
-    {post?.comments?.length} Comments
-  </p>
-
-  {/* Delete button (visible only to the post owner) */}
-  {user?._id === post?.userId?._id && (
-    <div className='flex gap-1 items-center text-base text-ascent-1 cursor-pointer' onClick={() => deletePost(post?._id)}>
-      <MdOutlineDeleteOutline size={20} />
-      <span>Delete</span>
-    </div>
-  )}
-</div>      
-      {/* COMMENTS */}
       {showComments === post?._id && (
         <div className='w-full mt-4 border-t border-[#66666645] pt-4 '>
           <CommentForm
@@ -379,16 +366,18 @@ const handleViewIncrement = () => {
                   <p className='text-ascent-2'>{comment?.comment}</p>
 
                   <div className='mt-2 flex gap-6'>
-                    <p className='flex gap-2 items-center text-base text-ascent-2 cursor-pointer'
-                    onClick={()=>{
-                      handleLike("/posts/like-comment/" + comment?._id);
-                    }}>
+                    <p
+                      className='flex gap-2 items-center text-base text-ascent-2 cursor-pointer'
+                      onClick={() => {
+                        handleLike("/posts/like-comment/" + comment?._id);
+                      }}
+                    >
                       {comment?.likes?.includes(user?._id) ? (
                         <BiSolidLike size={20} color='blue' />
                       ) : (
                         <BiLike size={20} />
                       )}
-                      {comment?.likes?.length} Likes
+                      {comment?.likes?.length}
                     </p>
                     <span
                       className='text-blue cursor-pointer'
@@ -406,42 +395,6 @@ const handleViewIncrement = () => {
                       getComments={() => getComments(post?._id)}
                     />
                   )}
-                </div>
-
-                {/* REPLIES */}
-
-                <div className='py-2 px-8 mt-6'>
-                  {comment?.replies?.length > 0 && (
-                    <p
-                      className='text-base text-ascent-1 cursor-pointer'
-                      onClick={() =>
-                        setShowReply(
-                          showReply === comment?.replies?._id
-                            ? 0
-                            : comment?.replies?._id
-                        )
-                      }
-                    >
-                      Show Replies ({comment?.replies?.length})
-                    </p>
-                  )}
-
-                  {showReply === comment?.replies?._id &&
-                    comment?.replies?.map((reply) => (
-                      <ReplyCard
-                        reply={reply}
-                        user={user}
-                        key={reply?._id}
-                        handleLike={() =>
-                          handleLike(
-                            "/posts/like-comment/" +
-                              comment?._id +
-                              "/" +
-                              reply?._id
-                          )
-                        }
-                      />
-                    ))}
                 </div>
               </div>
             ))
