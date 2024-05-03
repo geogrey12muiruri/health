@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faEnvelope, faSearch, faCalendar, faAmbulance, faFlask } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faEnvelope, faSearch, faCalendar, faAmbulance, faFlask } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 
 const PillarsSection = () => {
   return (
-    <section className="py-10 bg-blue-200 relative">
+    <section className="py-10 bg-blue-200">
       <div className="container mx-auto px-4">
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-center mb-6">Health Services</h2>
@@ -16,7 +16,6 @@ const PillarsSection = () => {
           </div>
         </div>
       </div>
-      <UserProfileImage />
       <MobileNavbar />
     </section>
   );
@@ -96,14 +95,6 @@ const DoctorsSection = () => {
           </div>
         ))}
       </div>
-    </div>
-  );
-};
-
-const UserProfileImage = () => {
-  return (
-    <div className="absolute top-0 right-0 mt-4 mr-4 rounded-full overflow-hidden bg-white">
-      <img src="user-profile-image.jpg" alt="User Profile" className="w-12 h-12" />
     </div>
   );
 };
