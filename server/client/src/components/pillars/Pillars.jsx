@@ -26,27 +26,16 @@ const slideInVariants = {
   hidden: { y: 100, opacity: 0 },
   visible: { y: 0, opacity: 1 },
 };
-
-
-
-const gradientBoxShadow = "0 0 0 3px transparent, 0 0 0 6px blue, 0 0 0 9px pink, 0 0 0 12px orange";
-const SymptomCheckerWithAnimation = ({ ref, isVisible }) => {
-  // Define the gradient box shadow style
-  const gradientBoxShadow = "0 0 0 4px rgba(0, 0, 255, 0.7), 0 0 0 8px rgba(255, 165, 0, 0.7), 0 0 0 12px rgba(255, 192, 203, 0.7)";
-
+const SymptomCheckerWithAnimation = () => {
   return (
     <motion.div
-      ref={ref}
       initial="hidden"
-      animate={isVisible ? "visible" : "hidden"}
+      animate="visible"
       variants={slideInVariants}
-      className="relative rounded-lg shadow-md"
+      className="bg-white p-6 rounded-lg shadow-md"
       transition={{ delay: 0.2 }} // Delay the animation
-      style={{ boxShadow: gradientBoxShadow }}
     >
-      <div className="bg-white p-6 rounded-lg">
-        <SymptomChecker />
-      </div>
+      <SymptomChecker />
     </motion.div>
   );
 };
