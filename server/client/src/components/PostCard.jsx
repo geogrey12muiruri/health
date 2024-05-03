@@ -123,7 +123,8 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
   const [showAll, setShowAll] = useState(0);
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [showComments, setShowComments] = useState(false); // Changed from null to false
+  const [showComments, setShowComments] = useState(false); 
+  const [postViewed, setPostViewed] = useState(false); // Track if post has been viewed
   const postRef = useRef(null);
 
   const getComments = async (id) => {
@@ -138,15 +139,15 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
     getComments(post?._id);
   };
 
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setPost((prevPost) => ({
-            ...prevPost,
-            views: prevPost.views + 1,
-          }));
+        if (entry.isIntersecting && !postViewed) { // Check if post is visible and not already viewed
+          setPostViewed(true); // Set post as viewed
           observer.unobserve(postRef.current);
+          // Increment views count directly on the post object
+          post.views = post.views + 1;
         }
       },
       {
@@ -165,7 +166,9 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
         observer.unobserve(postRef.current);
       }
     };
-  }, []);
+  }, [postViewed]);
+
+  
 
   const handleViewIncrement = () => {
     setPost((prevPost) => ({
