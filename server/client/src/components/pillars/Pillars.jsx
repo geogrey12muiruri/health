@@ -78,7 +78,6 @@ const EmergencyServiceItem = ({ icon: Icon, title, link }) => {
 
 
 const DoctorsSection = () => {
-const DoctorsSection = () => {
   const doctors = [
     { name: "Doctor 1", image: "doctor1.jpg", description: "Description of Doctor 1" },
     { name: "Doctor 2", image: "doctor2.jpg", description: "Description of Doctor 2" },
@@ -90,18 +89,21 @@ const DoctorsSection = () => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md overflow-x-auto">
       <h3 className="text-xl font-bold mb-2">Our Doctors</h3>
-      <div className="flex">
+      <div className="flex flex-nowrap">
         {doctors.map((doctor, index) => (
           <div key={index} className="flex-shrink-0 w-64 bg-gray-200 rounded-lg p-4 mr-4">
             <img src={doctor.image} alt={doctor.name} className="w-full h-40 object-cover rounded-lg mb-2" />
-            <p className="text-gray-800 font-semibold">{doctor.name}</p>
-            <p className="text-gray-600">{doctor.description}</p>
+            <div className="flex flex-col justify-center">
+              <p className="text-gray-800 font-semibold">{doctor.name}</p>
+              <p className="text-gray-600">{doctor.description}</p>
+            </div>
           </div>
         ))}
       </div>
     </div>
   );
 };
+
 
 
 
