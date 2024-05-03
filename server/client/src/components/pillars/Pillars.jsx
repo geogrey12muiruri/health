@@ -124,7 +124,7 @@ export default EmergencyServices;
       </Link>
     </motion.div>
   );
-};
+
 
 const DoctorsSectionWithAnimation = () => {
   return (
