@@ -11,7 +11,7 @@ const ConnectDoctorComponent = ({ userName, profileImage }) => {
 
   const handleSearch = async () => {
     try {
-      const response = await axios.get(API_ENDPOINT/symptoms=${symptoms});
+      const response = await axios.get(`API_ENDPOINT/symptoms=${symptoms}`);
       setRecommendation(response.data.recommendation);
     } catch (error) {
       console.error("Error fetching recommendation:", error);
