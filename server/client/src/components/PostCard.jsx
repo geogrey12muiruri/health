@@ -12,15 +12,16 @@ import { BiShow } from "react-icons/bi";
 import { CiShare2 } from "react-icons/ci";
 import { apiRequest } from "../utils";
 
-const getPostComments = async (id) => {
+const getPostComments = async (postId) => {
   try {
     const res = await apiRequest({
-      url: "/posts/comments/" + id,
+      url: `/comments/${postId}`, // Constructing the correct URL to fetch comments for a post
       method: "GET",
     });
+    console.log("Response:", res); // Log the response
     return res?.data;
   } catch (error) {
-    console.log(error);
+    console.log("Error fetching comments:", error); // Log any errors
   }
 };
 
