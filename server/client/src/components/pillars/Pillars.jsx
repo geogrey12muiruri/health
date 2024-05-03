@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { FaHome, FaEnvelope, FaSearch, FaCalendar, FaAmbulance, FaUserMd, FaFlask } from 'react-icons/fa';
 import SymptomChecker from '../../components/carriculum/Carriculum';
 
@@ -69,13 +70,24 @@ const EmergencyServices = () => {
 
 
 const EmergencyServiceItem = ({ icon: Icon, title, link }) => {
+const EmergencyServiceItem = ({ icon: Icon, title, link }) => {
   return (
-    <Link to={link} className="flex-shrink-0 bg-blue-200 bg-opacity-75 rounded-lg p-4 mr-4 mb-4">
-      <Icon className="text-gray-600 text-lg" />
-      <p className="text-gray-800">{title}</p>
-    </Link>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="flex-shrink-0 bg-white bg-opacity-75 rounded-lg p-4 mr-4 mb-4"
+    >
+      <Link to={link} className="flex items-center">
+        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+          <Icon className="text-gray-600 text-lg" />
+        </motion.div>
+        <p className="text-gray-800 ml-2">{title}</p>
+      </Link>
+    </motion.div>
   );
 };
+
 
 
 const DoctorsSection = () => {
