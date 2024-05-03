@@ -9,6 +9,7 @@ import TextInput from "./TextInput";
 import Loading from "./Loading";
 import CustomButton from "./CustomButton";
 import { BiShow } from "react-icons/bi";
+import { CiShare2 } from "react-icons/ci";
 
 
 import { apiRequest } from "../utils";
@@ -322,7 +323,7 @@ const handleViewIncrement = () => {
 
   {/* Share functionality */}
   <p className='flex gap-2 items-center text-base cursor-pointer'>
-    <BiShareAlt size={20} />
+    <CiShare2 size={20} />
     Share
   </p>
 
