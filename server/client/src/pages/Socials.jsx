@@ -386,4 +386,3 @@ import CollaborationSection from '../components/collaborations/CollaborationSect
   );
 };
 export default Socials;
-
