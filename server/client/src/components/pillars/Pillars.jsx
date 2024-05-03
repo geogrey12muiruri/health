@@ -68,8 +68,6 @@ const EmergencyServices = () => {
   );
 };
 
-
-const EmergencyServiceItem = ({ icon: Icon, title, link }) => {
 const EmergencyServiceItem = ({ icon: Icon, title, link }) => {
   return (
     <motion.div
