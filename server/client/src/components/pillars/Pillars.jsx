@@ -78,27 +78,31 @@ const EmergencyServiceItem = ({ icon: Icon, title, link }) => {
 
 
 const DoctorsSection = () => {
+const DoctorsSection = () => {
   const doctors = [
     { name: "Doctor 1", image: "doctor1.jpg", description: "Description of Doctor 1" },
     { name: "Doctor 2", image: "doctor2.jpg", description: "Description of Doctor 2" },
-    { name: "Doctor 3", image: "doctor3.jpg", description: "Description of Doctor 3" }
+    { name: "Doctor 3", image: "doctor3.jpg", description: "Description of Doctor 3" },
+    { name: "Doctor 4", image: "doctor4.jpg", description: "Description of Doctor 4" },
+    { name: "Doctor 5", image: "doctor5.jpg", description: "Description of Doctor 5" }
   ];
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md">
+    <div className="bg-white p-6 rounded-lg shadow-md overflow-x-auto">
       <h3 className="text-xl font-bold mb-2">Our Doctors</h3>
-      <div className="flex flex-wrap justify-center">
+      <div className="flex">
         {doctors.map((doctor, index) => (
-          <div key={index} className="flex-shrink-0 w-48 md:w-64 bg-gray-200 mr-4 mb-4 rounded-lg p-4">
-            <img src={doctor.image} alt={doctor.name} className="w-full h-32 md:h-40 object-cover rounded-lg mb-2" />
-            <p className="text-gray-800 font-semibold text-sm md:text-base">{doctor.name}</p>
-            <p className="text-gray-600 text-xs md:text-sm">{doctor.description}</p>
+          <div key={index} className="flex-shrink-0 w-64 bg-gray-200 rounded-lg p-4 mr-4">
+            <img src={doctor.image} alt={doctor.name} className="w-full h-40 object-cover rounded-lg mb-2" />
+            <p className="text-gray-800 font-semibold">{doctor.name}</p>
+            <p className="text-gray-600">{doctor.description}</p>
           </div>
         ))}
       </div>
     </div>
   );
 };
+
 
 
 const MobileNavbar = () => {
