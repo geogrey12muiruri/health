@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faEnvelope, faSearch, faCalendar } from 'react-icons/fa';
+import { faHome, faEnvelope, faSearch, faCalendar, faAmbulance, faFlask } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 
 const PillarsSection = () => {
@@ -56,7 +56,7 @@ const HealthTipsCarousel = () => {
 
 const EmergencyServices = () => {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md">
+    <div className="bg-blue-200 p-6 rounded-lg shadow-md">
       <h3 className="text-xl font-bold mb-2">Services</h3>
       <div className="flex flex-wrap">
         <EmergencyServiceItem icon={faAmbulance} title="Ambulance" link="/ambulance" />
