@@ -87,18 +87,19 @@ const DoctorsSection = () => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h3 className="text-xl font-bold mb-2">Our Doctors</h3>
-      <div className="flex overflow-x-auto">
+      <div className="flex flex-wrap justify-center">
         {doctors.map((doctor, index) => (
-          <div key={index} className="flex-shrink-0 w-64 bg-gray-200 mr-4 rounded-lg p-4">
-            <img src={doctor.image} alt={doctor.name} className="w-full h-40 object-cover rounded-lg mb-2" />
-            <p className="text-gray-800 font-semibold">{doctor.name}</p>
-            <p className="text-gray-600">{doctor.description}</p>
+          <div key={index} className="flex-shrink-0 w-48 md:w-64 bg-gray-200 mr-4 mb-4 rounded-lg p-4">
+            <img src={doctor.image} alt={doctor.name} className="w-full h-32 md:h-40 object-cover rounded-lg mb-2" />
+            <p className="text-gray-800 font-semibold text-sm md:text-base">{doctor.name}</p>
+            <p className="text-gray-600 text-xs md:text-sm">{doctor.description}</p>
           </div>
         ))}
       </div>
     </div>
   );
 };
+
 
 const MobileNavbar = () => {
   return (
