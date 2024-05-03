@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { faHome, faEnvelope, faSearch, faCalendar } from 'react-icons/fa';
+import { FaHome, FaEnvelope, FaSearch, FaCalendar } from 'react-icons/fa'; // Correct import for home icon
 
 const PillarsSection = () => {
   return (
