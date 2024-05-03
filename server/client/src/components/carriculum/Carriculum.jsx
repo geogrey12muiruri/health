@@ -23,9 +23,9 @@ const ConnectDoctorComponent = ({ userName, profileImage }) => {
     <div className="bg-blue-200 p-4 rounded-lg shadow-md">
       <div className="flex items-center justify-between mb-2">
         <div>
-          <h3 className="text-lg font-bold">Hi {userName}, how are you feeling?</h3>
-          <p>Let's connect you to a doctor.</p>
-        </div>
+          <h3 className="text-lg font-bold text-white">How are you feeling?</h3>
+      <p className="text-white">Let's connect you to a doctor.</p>
+    </div>
         {profileImage && (
           <img src={profileImage} alt="User profile" className="w-10 h-10 rounded-full" />
         )}
