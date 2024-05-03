@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaHome, FaEnvelope, FaSearch, FaCalendar } from 'react-icons/fa';
+import { FaHome, FaEnvelope, FaSearch, FaCalendar, FaAmbulance, FaUserMd, FaFlask } from 'react-icons/fa';
 
 const PillarsSection = () => {
   return (
