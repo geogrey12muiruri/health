@@ -75,7 +75,7 @@ const Navbar = () => {
          <div>
             {user ? (
               <div className="flex items-center">
-                <span className="text-white mr-2">{user.username}</span>
+                <span className="text-red-500 mr-2">{user.username}</span>
                 <RiUserLine
                   className="cursor-pointer text-white"
                 
