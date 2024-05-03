@@ -36,7 +36,7 @@ const ConnectDoctorComponent = ({ userName, profileImage }) => {
           value={symptoms}
           onChange={handleInputChange}
           placeholder="Enter your symptoms (separated by commas)"
-          className="w-full h-12 border border-gray-300 rounded-md p-2"
+          className="w-full h-8 border border-gray-300 rounded-md p-2"
         />
       </div>
       <button
