@@ -67,14 +67,34 @@ const EmergencyServices = () => {
 };
 
 const EmergencyServiceItem = ({ icon: Icon, title, link }) => {
-  return (
-    <Link to={link} className="flex-shrink-0 bg-blue-200 bg-opacity-75 rounded-lg p-4 mr-4 mb-4">
-      <Icon className="text-gray-600 text-lg" />
-      <p className="text-gray-800">{title}</p>
-    </Link>
+  const itemVariants = {
+    hidden: { opacity: 0, x: 100 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: 0.5, // Adjust the delay as needed
+        type: "spring",
+        stiffness: 100,
+        bounce: 0.5,
+      },
+    },
+  };
+  
+return (
+    <motion.div
+      variants={itemVariants}
+      initial="hidden"
+      animate="visible"
+      className="flex-shrink-0 bg-blue-200 bg-opacity-75 rounded-lg p-4 mr-4 mb-4"
+    >
+      <Link to={link} className="flex items-center">
+        <Icon className="text-gray-600 text-lg" />
+        <p className="text-gray-800 ml-2">{title}</p>
+      </Link>
+    </motion.div>
   );
 };
-
 const DoctorsSectionWithAnimation = () => {
   return (
     <motion.div
