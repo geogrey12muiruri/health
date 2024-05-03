@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { FaHome, FaEnvelope, FaSearch, FaCalendar } from 'react-icons/fa'; // Correct import for home icon
+import { IoHomeOutline } from "react-icons/io5"; 
+import { IoChatboxEllipsesOutline } from "react-icons/io5";
+import { CiCalendarDate } from "react-icons/ci";
 
+import { CiSearch } from "react-icons/ci";
 const PillarsSection = () => {
   return (
     <section className="py-10 bg-gray-100">
@@ -104,16 +107,16 @@ const MobileNavbar = () => {
   return (
     <div className="fixed bottom-0 left-0 w-full bg-white shadow-md p-4 flex justify-around items-center md:hidden">
       <a href="#home">
-        <FaHome className="text-gray-600 text-lg cursor-pointer" />
+        <IoHomeOutline className="text-gray-600 text-lg cursor-pointer" />
       </a>
       <a href="#messages">
-        <FaEnvelope className="text-gray-600 text-lg cursor-pointer" />
+        <IoChatboxEllipsesOutline className="text-gray-600 text-lg cursor-pointer" />
       </a>
       <a href="#search">
-        <FaSearch className="text-gray-600 text-lg cursor-pointer" />
+        <CiSearch className="text-gray-600 text-lg cursor-pointer" />
       </a>
       <a href="#bookings">
-        <FaCalendar className="text-gray-600 text-lg cursor-pointer" />
+        <CiCalendarDate className="text-gray-600 text-lg cursor-pointer" />
       </a>
     </div>
   );
