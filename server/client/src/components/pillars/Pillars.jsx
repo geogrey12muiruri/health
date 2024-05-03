@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAmbulance, faUserMd, faBookMedical, faEllipsisH, faEnvelope, faSearch, faCalendar } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faEnvelope, faSearch, faCalendar } from 'react-icons/fa';
 
 const PillarsSection = () => {
   return (
@@ -58,9 +57,9 @@ const EmergencyServices = () => {
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h3 className="text-xl font-bold mb-2">Services</h3>
       <div className="flex flex-wrap">
-        <EmergencyServiceItem icon={faAmbulance} title="Ambulance" />
+        <EmergencyServiceItem icon={faAmbulance} title="Emergency Services" />
         <EmergencyServiceItem icon={faUserMd} title="See a Doctor" />
-        <EmergencyServiceItem icon={faBookMedical} title="Imaging & Labs" />
+        <EmergencyServiceItem icon={faBookMedical} title="Book Imaging and Labs" />
         <div className="flex items-center">
           <FontAwesomeIcon icon={faEllipsisH} className="text-gray-600 text-lg cursor-pointer" />
         </div>
@@ -104,15 +103,18 @@ const DoctorsSection = () => {
 const MobileNavbar = () => {
   return (
     <div className="fixed bottom-0 left-0 w-full bg-white shadow-md p-4 flex justify-around items-center md:hidden">
-      <div>
-        <FontAwesomeIcon icon={faEnvelope} className="text-gray-600 text-lg cursor-pointer" />
-      </div>
-      <div>
-        <FontAwesomeIcon icon={faSearch} className="text-gray-600 text-lg cursor-pointer" />
-      </div>
-      <div>
-        <FontAwesomeIcon icon={faCalendar} className="text-gray-600 text-lg cursor-pointer" />
-      </div>
+      <a href="#home">
+        <FaHome className="text-gray-600 text-lg cursor-pointer" />
+      </a>
+      <a href="#messages">
+        <FaEnvelope className="text-gray-600 text-lg cursor-pointer" />
+      </a>
+      <a href="#search">
+        <FaSearch className="text-gray-600 text-lg cursor-pointer" />
+      </a>
+      <a href="#bookings">
+        <FaCalendar className="text-gray-600 text-lg cursor-pointer" />
+      </a>
     </div>
   );
 };

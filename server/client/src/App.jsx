@@ -25,10 +25,11 @@ function App() {
   const location = useLocation();
 
   const isServicesPage = location.pathname === '/services';
+  const isSocialsPage = location.pathname === '/socials';
 
   return (
     <div data-theme={theme} className='w-full min-h-[100vh]'>
-      {!isServicesPage && <Contact />}
+      {!isServicesPage && !isSocialsPage && <Contact />}
       <Navbar />
       <Routes>
         <Route element={<Layout />}>
@@ -42,7 +43,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/reset-password' element={<ResetPassword />} />
       </Routes>
-      {!isServicesPage && <Footer />}
+      {!isServicesPage && !isSocialsPage && <Footer />}
     </div>
   );
 }
