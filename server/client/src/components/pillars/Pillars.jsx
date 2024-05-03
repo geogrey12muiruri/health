@@ -55,7 +55,7 @@ const HealthTipsCarousel = () => {
 
 const EmergencyServices = () => {
   return (
-    <div className="bg-blue-200 p-6 rounded-lg shadow-md">
+    <div className="bg-white p-6 rounded-lg shadow-md">
       <h3 className="text-xl font-bold mb-2">Services</h3>
       <div className="flex flex-wrap">
         <EmergencyServiceItem icon={FaAmbulance} title="Ambulance" link="/ambulance" />
@@ -65,6 +65,7 @@ const EmergencyServices = () => {
     </div>
   );
 };
+
 
 const EmergencyServiceItem = ({ icon: Icon, title, link }) => {
   return (
