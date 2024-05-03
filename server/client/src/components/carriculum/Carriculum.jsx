@@ -20,7 +20,7 @@ const ConnectDoctorComponent = ({ userName, profileImage }) => {
   };
 
   return (
-    <div className="bg-white p-4 rounded-md shadow-md">
+    <div className="bg-blue-200 p-4 rounded-md shadow-md">
       <div className="flex items-center justify-between mb-2">
         <div>
           <h3 className="text-lg font-bold">Hi {userName}, how are you feeling?</h3>
