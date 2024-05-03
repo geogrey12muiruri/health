@@ -109,22 +109,6 @@ const EmergencyServiceItem = ({ icon: Icon, title, link }) => {
   );
 };
 
-export default EmergencyServices;
-
-  return (
-    <motion.div
-      variants={itemVariants}
-      initial="hidden"
-      animate="visible"
-      className="flex-shrink-0 bg-blue-200 bg-opacity-75 rounded-lg p-4 mr-4 mb-4"
-    >
-      <Link to={link} className="flex items-center">
-        <Icon className="text-gray-600 text-lg" />
-        <p className="text-gray-800 ml-2">{title}</p>
-      </Link>
-    </motion.div>
-  );
-
 
 const DoctorsSectionWithAnimation = () => {
   return (
