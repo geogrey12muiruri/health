@@ -170,12 +170,7 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
 
   
 
-  const handleViewIncrement = () => {
-    setPost((prevPost) => ({
-      ...prevPost,
-      views: prevPost.views + 1,
-    }));
-  };
+
 
   return (
     <div ref={postRef} className='mb-2 bg-primary p-4 rounded-xl'>
