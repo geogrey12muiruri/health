@@ -5,7 +5,7 @@ import { HomePage, Login, Profile, Register, ResetPassword } from "./pages";
 import Contact from './components/contact/Contact';
 import Navbar from './components/nav/Navbar';
 import Footer from './components/footer/Footer';
-import Pillars from './components/pillars/Pillars';
+import Pillars from './components/pillars/PillarsSection';
 import Socials from "./pages/Socials";
 import SymptomCheaker from "./components/carriculum/Carriculum";
 
