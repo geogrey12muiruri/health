@@ -7,6 +7,7 @@ import Footer from './components/footer/Footer';
 import Pillars from './components/pillars/Pillars';
 import Socials from "./pages/Socials";
 import SymptomCheaker from "./components/carriculum/Carriculum";
+import Navbar from './components/nav/Navbar';
 
 function Layout() {
   const { user } = useSelector((state) => state.user);
