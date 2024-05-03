@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaHome, FaEnvelope, FaSearch, FaCalendar, FaAmbulance, FaUserMd, FaFlask } from 'react-icons/fa';
@@ -34,6 +34,7 @@ const SymptomCheckerWithAnimation = () => {
       animate="visible"
       variants={slideInVariants}
       className="bg-white p-6 rounded-lg shadow-md"
+      transition={{ delay: 0.2 }} // Delay the animation
     >
       <SymptomChecker />
     </motion.div>
@@ -47,6 +48,7 @@ const EmergencyServicesWithAnimation = () => {
       animate="visible"
       variants={slideInVariants}
       className="bg-white p-6 rounded-lg shadow-md"
+      transition={{ delay: 0.4 }} // Delay the animation
     >
       <EmergencyServices />
     </motion.div>
@@ -73,15 +75,15 @@ const EmergencyServiceItem = ({ icon: Icon, title, link }) => {
       opacity: 1,
       x: 0,
       transition: {
-        delay: 0.5, // Adjust the delay as needed
+        delay: 0.6, // Adjust the delay as needed
         type: "spring",
         stiffness: 100,
         bounce: 0.5,
       },
     },
   };
-  
-return (
+
+  return (
     <motion.div
       variants={itemVariants}
       initial="hidden"
@@ -95,6 +97,7 @@ return (
     </motion.div>
   );
 };
+
 const DoctorsSectionWithAnimation = () => {
   return (
     <motion.div
@@ -102,6 +105,7 @@ const DoctorsSectionWithAnimation = () => {
       animate="visible"
       variants={slideInVariants}
       className="bg-white p-6 rounded-lg shadow-md overflow-x-auto"
+      transition={{ delay: 0.8 }} // Delay the animation
     >
       <DoctorsSection />
     </motion.div>
@@ -120,13 +124,19 @@ const DoctorsSection = () => {
   return (
     <div className="flex flex-nowrap flex-wrap lg:flex-no-wrap">
       {doctors.map((doctor, index) => (
-        <div key={index} className="flex-shrink-0 w-48 lg:w-64 bg-gray-200 rounded-lg p-4 mr-4 mb-4">
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.9 + index * 0.1 }} // Delay each doctor card animation
+          className="flex-shrink-0 w-48 lg:w-64 bg-gray-200 rounded-lg p-4 mr-4 mb-4"
+        >
           <img src={doctor.image} alt={doctor.name} className="w-full h-32 lg:h-40 object-cover rounded-lg mb-2" />
           <div className="flex flex-col justify-center">
             <p className="text-gray-800 font-semibold">{doctor.name}</p>
             <p className="text-gray-600">{doctor.description}</p>
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   );
