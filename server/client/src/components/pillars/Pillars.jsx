@@ -69,12 +69,13 @@ const EmergencyServices = () => {
 
 const EmergencyServiceItem = ({ icon: Icon, title, link }) => {
   return (
-    <Link to={link} className="flex-shrink-0 bg-white bg-opacity-75 rounded-lg p-4 mr-4 mb-4">
+    <Link to={link} className="flex-shrink-0 bg-blue-200 bg-opacity-75 rounded-lg p-4 mr-4 mb-4">
       <Icon className="text-gray-600 text-lg" />
       <p className="text-gray-800">{title}</p>
     </Link>
   );
 };
+
 
 const DoctorsSection = () => {
   const doctors = [
