@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaHome, FaEnvelope, FaSearch, FaCalendar, FaAmbulance, FaUserMd, FaFlask } from 'react-icons/fa';
-import SymptomChecker from '../../components/carriculum/Carriculum;
+import SymptomChecker from '../../components/carriculum/Carriculum';
 
 const PillarsSection = () => {
   return (
