@@ -30,8 +30,10 @@ const slideInVariants = {
 
 
 const gradientBoxShadow = "0 0 0 3px transparent, 0 0 0 6px blue, 0 0 0 9px pink, 0 0 0 12px orange";
+const SymptomCheckerWithAnimation = ({ ref, isVisible }) => {
+  // Define the gradient box shadow style
+  const gradientBoxShadow = "0 0 0 4px rgba(0, 0, 255, 0.7), 0 0 0 8px rgba(255, 165, 0, 0.7), 0 0 0 12px rgba(255, 192, 203, 0.7)";
 
-const SymptomCheckerWithAnimation = () => {
   return (
     <motion.div
       ref={ref}
