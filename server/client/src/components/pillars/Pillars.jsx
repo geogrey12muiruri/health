@@ -68,6 +68,7 @@ const EmergencyServices = () => {
   );
 };
 
+
 const EmergencyServiceItem = ({ icon: Icon, title, link }) => {
   const itemVariants = {
     hidden: {
@@ -79,6 +80,9 @@ const EmergencyServiceItem = ({ icon: Icon, title, link }) => {
       opacity: 1,
       transition: {
         delay: 0.2, // Delay each item's animation by 0.2 seconds
+        type: "spring",
+        stiffness: 100,
+        damping: 10,
       },
     },
   };
@@ -97,6 +101,7 @@ const EmergencyServiceItem = ({ icon: Icon, title, link }) => {
     </motion.div>
   );
 };
+
 
 
 
