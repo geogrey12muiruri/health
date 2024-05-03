@@ -1,14 +1,18 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { FaHome, FaEnvelope, FaSearch, FaCalendar, FaAmbulance, FaUserMd, FaFlask } from 'react-icons/fa';
+import { FaHome, FaEnvelope, FaSearch, FaCalendar, FaAmbulance, FaUserMd, FaFlask, FaUser} from 'react-icons/fa';
 import SymptomChecker from '../../components/carriculum/Carriculum';
 
 const PillarsSection = () => {
   return (
     <section className="py-10 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="mb-8">
+        <div className="mb-8 flex justify-between items-center">
+          <div className="flex items-center">
+            <ProfileSection />
+            <h2 className="text-3xl font-bold text-center ml-4">Health Services</h2>
+          </div>
           <h2 className="text-3xl font-bold text-center mb-6">Health Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <SymptomCheckerWithAnimation />
@@ -37,6 +41,14 @@ const SymptomCheckerWithAnimation = () => {
     >
       <SymptomChecker />
     </motion.div>
+  );
+};
+const ProfileSection = () => {
+  return (
+    <div className="flex items-center">
+      <FaUser className="text-gray-600 text-lg cursor-pointer" />
+      <p className="text-gray-600 text-sm ml-2">Hello Gedion</p>
+    </div>
   );
 };
 
