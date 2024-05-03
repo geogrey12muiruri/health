@@ -20,6 +20,7 @@ import {apiRequest, fetchPosts, handleFileUpload, likePost, deletePost, sendFrie
 import { UserLogin } from "../redux/userSlice.js";
 import CollaborationSection from '../components/collaborations/CollaborationSection'
  const Socials = () => {
+   const [showPostModal, setShowPostModal] = useState(false);
 
   const { posts } = useSelector((state) => state.posts);
   const { user, edit } = useSelector((state) => state.user);
@@ -30,6 +31,9 @@ import CollaborationSection from '../components/collaborations/CollaborationSect
   const [posting, setPosting] = useState(false);
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
+   const handleTogglePostModal = () => {
+    setShowPostModal(!showPostModal); // Toggle post form modal visibility
+  };
   const {
     register,
     handleSubmit, 
@@ -170,101 +174,7 @@ import CollaborationSection from '../components/collaborations/CollaborationSect
 
           {/* CENTER */}
           <div className='flex-1 h-full px-4 flex flex-col gap-6 overflow-y-auto rounded-lg'>
-            <form
-              onSubmit={handleSubmit(handlePostSubmit)}
-              className='bg-primary px-4 rounded-lg'
-            >
-              <div className='w-full flex items-center gap-2 py-4 border-b border-[#66666645]'>
-                <img
-                  src={user?.profileUrl ?? NoProfile}
-                  alt='User Image'
-                  className='w-14 h-14 rounded-full object-cover'
-                />
-                <TextInput
-                  styles='w-full rounded-full py-5'
-                  placeholder="What's on your mind...."
-                  name='description'
-                  register={register("description", {
-                    required: "Write something about post",
-                  })}
-                  error={errors.description ? errors.description.message : ""}
-                />
-              </div>
-              {errMsg?.message && (
-                <span
-                  role='alert'
-                  className={`text-sm ${
-                    errMsg?.status === "failed"
-                      ? "text-[#f64949fe]"
-                      : "text-[#2ba150fe]"
-                  } mt-0.5`}
-                >
-                  {errMsg?.message}
-                </span>
-              )}
-
-              <div className='flex items-center justify-between py-4'>
-                <label
-                  htmlFor='imgUpload'
-                  className='flex items-center gap-1 text-base text-ascent-2 hover:text-ascent-1 cursor-pointer'
-                >
-                  <input
-                    type='file'
-                    onChange={(e) => setFile(e.target.files[0])}
-                    className='hidden'
-                    id='imgUpload'
-                    data-max-size='5120'
-                    accept='.jpg, .png, .jpeg'
-                  />
-                  <BiImages />
-                  <span>Image</span>
-                </label>
-
-                <label
-                  className='flex items-center gap-1 text-base text-ascent-2 hover:text-ascent-1 cursor-pointer'
-                  htmlFor='videoUpload'
-                >
-                  <input
-                    type='file'
-                    data-max-size='5120'
-                    onChange={(e) => setFile(e.target.files[0])}
-                    className='hidden'
-                    id='videoUpload'
-                    accept='.mp4, .wav'
-                  />
-                  <BiSolidVideo />
-                  <span>Video</span>
-                </label>
-
-                <label
-                  className='flex items-center gap-1 text-base text-ascent-2 hover:text-ascent-1 cursor-pointer'
-                  htmlFor='vgifUpload'
-                >
-                  <input
-                    type='file'
-                    data-max-size='5120'
-                    onChange={(e) => setFile(e.target.files[0])}
-                    className='hidden'
-                    id='vgifUpload'
-                    accept='.gif'
-                  />
-                  <BsFiletypeGif />
-                  <span>Gif</span>
-                </label>
-
-                <div>
-                  {posting ? (
-                    <Loading />
-                  ) : (
-                    <CustomButton
-                      type='submit'
-                      title='Post'
-                      containerStyles='bg-[#0444a4] text-white py-1 px-6 rounded-full font-semibold text-sm'
-                    />
-                  )}
-                </div>
-              </div>
-            </form>
+          
 
             {loading ? (
               <Loading />
@@ -379,6 +289,118 @@ import CollaborationSection from '../components/collaborations/CollaborationSect
           </div>
         </div>
       </div>
+       <div className='fixed bottom-6 right-6'>
+        <button
+          onClick={handleTogglePostModal}
+          className='bg-primary text-white rounded-full p-4 shadow-lg hover:shadow-xl transition duration-300 ease-in-out'
+        >
+          {/* Add an icon here, for example: */}
+          <BsPersonFillAdd size={30} />
+        </button>
+      </div>
+      {showPostModal && (
+        <div className='fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50'>
+          <div className='bg-white p-6 rounded-lg max-w-md'>
+            <button onClick={handleTogglePostModal} className='absolute top-4 right-4 text-gray-500'>
+              Close
+            </button>
+            <form onSubmit={handleSubmit(handlePostSubmit)} className='bg-primary px-4 rounded-lg'>
+              
+              <div className='w-full flex items-center gap-2 py-4 border-b border-[#66666645]'>
+                <img
+                  src={user?.profileUrl ?? NoProfile}
+                  alt='User Image'
+                  className='w-14 h-14 rounded-full object-cover'
+                />
+                <TextInput
+                  styles='w-full rounded-full py-5'
+                  placeholder="What's on your mind...."
+                  name='description'
+                  register={register("description", {
+                    required: "Write something about post",
+                  })}
+                  error={errors.description ? errors.description.message : ""}
+                />
+              </div>
+              {errMsg?.message && (
+                <span
+                  role='alert'
+                  className={`text-sm ${
+                    errMsg?.status === "failed"
+                      ? "text-[#f64949fe]"
+                      : "text-[#2ba150fe]"
+                  } mt-0.5`}
+                >
+                  {errMsg?.message}
+                </span>
+              )}
+
+              <div className='flex items-center justify-between py-4'>
+                <label
+                  htmlFor='imgUpload'
+                  className='flex items-center gap-1 text-base text-ascent-2 hover:text-ascent-1 cursor-pointer'
+                >
+                  <input
+                    type='file'
+                    onChange={(e) => setFile(e.target.files[0])}
+                    className='hidden'
+                    id='imgUpload'
+                    data-max-size='5120'
+                    accept='.jpg, .png, .jpeg'
+                  />
+                  <BiImages />
+                  <span>Image</span>
+                </label>
+
+                <label
+                  className='flex items-center gap-1 text-base text-ascent-2 hover:text-ascent-1 cursor-pointer'
+                  htmlFor='videoUpload'
+                >
+                  <input
+                    type='file'
+                    data-max-size='5120'
+                    onChange={(e) => setFile(e.target.files[0])}
+                    className='hidden'
+                    id='videoUpload'
+                    accept='.mp4, .wav'
+                  />
+                  <BiSolidVideo />
+                  <span>Video</span>
+                </label>
+
+                <label
+                  className='flex items-center gap-1 text-base text-ascent-2 hover:text-ascent-1 cursor-pointer'
+                  htmlFor='vgifUpload'
+                >
+                  <input
+                    type='file'
+                    data-max-size='5120'
+                    onChange={(e) => setFile(e.target.files[0])}
+                    className='hidden'
+                    id='vgifUpload'
+                    accept='.gif'
+                  />
+                  <BsFiletypeGif />
+                  <span>Gif</span>
+                </label>
+
+                <div>
+                  {posting ? (
+                    <Loading />
+                  ) : (
+                    <CustomButton
+                      type='submit'
+                      title='Post'
+                      containerStyles='bg-[#0444a4] text-white py-1 px-6 rounded-full font-semibold text-sm'
+                    />
+                  )}
+                </div>
+              </div>
+            
+            </form>
+          </div>
+        </div>
+      )}
 
       {edit && <EditProfile />}
       <CollaborationSection />
