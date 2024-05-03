@@ -34,7 +34,7 @@ const SymptomCheckerWithAnimation = () => {
       animate="visible"
       variants={slideInVariants}
       className="bg-white p-6 rounded-lg shadow-md"
-      transition={{ delay: 0.2 }} // Delay the animation
+      transition={{ delay: 3.2 }} // Delay the animation
     >
       <SymptomChecker />
     </motion.div>
@@ -75,7 +75,7 @@ const EmergencyServiceItem = ({ icon: Icon, title, link }) => {
       opacity: 1,
       x: 0,
       transition: {
-        delay: 0.6, // Adjust the delay as needed
+        delay: 2.0, // Adjust the delay as needed
         type: "spring",
         stiffness: 100,
         bounce: 0.5,
@@ -105,7 +105,7 @@ const DoctorsSectionWithAnimation = () => {
       animate="visible"
       variants={slideInVariants}
       className="bg-white p-6 rounded-lg shadow-md overflow-x-auto"
-      transition={{ delay: 0.8 }} // Delay the animation
+      transition={{ delay: 2.8 }} // Delay the animation
     >
       <DoctorsSection />
     </motion.div>
