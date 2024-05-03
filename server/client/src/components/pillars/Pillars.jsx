@@ -89,10 +89,10 @@ const DoctorsSection = () => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md overflow-x-auto">
       <h3 className="text-xl font-bold mb-2">Our Doctors</h3>
-      <div className="flex flex-nowrap">
+      <div className="flex flex-nowrap flex-wrap lg:flex-no-wrap">
         {doctors.map((doctor, index) => (
-          <div key={index} className="flex-shrink-0 w-64 bg-gray-200 rounded-lg p-4 mr-4">
-            <img src={doctor.image} alt={doctor.name} className="w-full h-40 object-cover rounded-lg mb-2" />
+          <div key={index} className="flex-shrink-0 w-48 lg:w-64 bg-gray-200 rounded-lg p-4 mr-4 mb-4">
+            <img src={doctor.image} alt={doctor.name} className="w-full h-32 lg:h-40 object-cover rounded-lg mb-2" />
             <div className="flex flex-col justify-center">
               <p className="text-gray-800 font-semibold">{doctor.name}</p>
               <p className="text-gray-600">{doctor.description}</p>
