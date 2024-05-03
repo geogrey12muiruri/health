@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { faHome, faEnvelope, faSearch, faCalendar } from 'react-icons/fa';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAmbulance, faUserMd, faBookMedical, faEllipsisH, faEnvelope, faSearch, faCalendar } from "@fortawesome/free-solid-svg-icons";
 
 const PillarsSection = () => {
   return (
@@ -103,18 +104,15 @@ const DoctorsSection = () => {
 const MobileNavbar = () => {
   return (
     <div className="fixed bottom-0 left-0 w-full bg-white shadow-md p-4 flex justify-around items-center md:hidden">
-      <a href="#home">
-        <FaHome className="text-gray-600 text-lg cursor-pointer" />
-      </a>
-      <a href="#messages">
-        <FaEnvelope className="text-gray-600 text-lg cursor-pointer" />
-      </a>
-      <a href="#search">
-        <FaSearch className="text-gray-600 text-lg cursor-pointer" />
-      </a>
-      <a href="#bookings">
-        <FaCalendar className="text-gray-600 text-lg cursor-pointer" />
-      </a>
+      <div>
+        <FontAwesomeIcon icon={faEnvelope} className="text-gray-600 text-lg cursor-pointer" />
+      </div>
+      <div>
+        <FontAwesomeIcon icon={faSearch} className="text-gray-600 text-lg cursor-pointer" />
+      </div>
+      <div>
+        <FontAwesomeIcon icon={faCalendar} className="text-gray-600 text-lg cursor-pointer" />
+      </div>
     </div>
   );
 };
