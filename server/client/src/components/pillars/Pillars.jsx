@@ -1,35 +1,18 @@
-import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaHome, FaEnvelope, FaSearch, FaCalendar, FaAmbulance, FaUserMd, FaFlask } from 'react-icons/fa';
 import SymptomChecker from '../../components/carriculum/Carriculum';
-import { useInView } from 'react-intersection-observer';
 
 const PillarsSection = () => {
-  const [refSymptomChecker, inViewSymptomChecker] = useInView({
-    triggerOnce: true,
-    threshold: 0.5, // Adjust threshold as needed
-  });
-
-  const [refEmergencyServices, inViewEmergencyServices] = useInView({
-    triggerOnce: true,
-    threshold: 0.5, // Adjust threshold as needed
-  });
-
-  const [refDoctors, inViewDoctors] = useInView({
-    triggerOnce: true,
-    threshold: 0.5, // Adjust threshold as needed
-  });
-
   return (
     <section className="py-10 bg-blue-200">
       <div className="container mx-auto px-4">
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-center mb-6">Health Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <SymptomCheckerWithAnimation ref={refSymptomChecker} isVisible={inViewSymptomChecker} />
-            <EmergencyServicesWithAnimation ref={refEmergencyServices} isVisible={inViewEmergencyServices} />
-            <DoctorsSectionWithAnimation ref={refDoctors} isVisible={inViewDoctors} />
+            <SymptomCheckerWithAnimation />
+            <EmergencyServicesWithAnimation />
+            <DoctorsSectionWithAnimation />
           </div>
         </div>
       </div>
@@ -43,12 +26,11 @@ const slideInVariants = {
   visible: { y: 0, opacity: 1 },
 };
 
-const SymptomCheckerWithAnimation = ({ ref, isVisible }) => {
+const SymptomCheckerWithAnimation = () => {
   return (
     <motion.div
-      ref={ref}
       initial="hidden"
-      animate={isVisible ? "visible" : "hidden"}
+      animate="visible"
       variants={slideInVariants}
       className="bg-white p-6 rounded-lg shadow-md"
       transition={{ delay: 0.2 }} // Delay the animation
@@ -58,15 +40,14 @@ const SymptomCheckerWithAnimation = ({ ref, isVisible }) => {
   );
 };
 
-const EmergencyServicesWithAnimation = ({ ref, isVisible }) => {
+const EmergencyServicesWithAnimation = () => {
   return (
     <motion.div
-      ref={ref}
       initial="hidden"
-      animate={isVisible ? "visible" : "hidden"}
+      animate="visible"
       variants={slideInVariants}
       className="bg-white p-6 rounded-lg shadow-md"
-      transition={{ delay: 0.4 }} // Delay the animation
+      transition={{ delay: 0.8 }} // Delay the animation
     >
       <EmergencyServices />
     </motion.div>
@@ -116,15 +97,14 @@ const EmergencyServiceItem = ({ icon: Icon, title, link }) => {
   );
 };
 
-const DoctorsSectionWithAnimation = ({ ref, isVisible }) => {
+const DoctorsSectionWithAnimation = () => {
   return (
     <motion.div
-      ref={ref}
       initial="hidden"
-      animate={isVisible ? "visible" : "hidden"}
+      animate="visible"
       variants={slideInVariants}
       className="bg-white p-6 rounded-lg shadow-md overflow-x-auto"
-      transition={{ delay: 0.8 }} // Delay the animation
+      transition={{ delay: 1.8 }} // Delay the animation
     >
       <DoctorsSection />
     </motion.div>
@@ -181,3 +161,4 @@ const MobileNavbar = () => {
 };
 
 export default PillarsSection;
+
