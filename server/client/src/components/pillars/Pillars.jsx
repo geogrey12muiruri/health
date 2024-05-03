@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserMd, faBookMedical, faHospital, faEllipsisH, faHome, faEnvelope, faSearch, faCalendar } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faEnvelope, faSearch, faCalendar } from 'react-icons/fa';
+import { Link } from "react-router-dom";
 
 const PillarsSection = () => {
   return (
-    <section className="py-10 bg-gray-100">
+    <section className="py-10 bg-blue-200">
       <div className="container mx-auto px-4">
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-center mb-6">Health Services</h2>
-          <UserGreeting />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <HealthTipsCarousel />
             <EmergencyServices />
@@ -18,38 +18,6 @@ const PillarsSection = () => {
       </div>
       <MobileNavbar />
     </section>
-  );
-};
-
-const UserGreeting = () => {
-  const [symptoms, setSymptoms] = useState("");
-
-  const handleSymptomsChange = (e) => {
-    setSymptoms(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle symptom submission
-    console.log("Symptoms:", symptoms);
-  };
-
-  return (
-    <div className="bg-white p-6 rounded-lg shadow-md mb-6">
-      <h3 className="text-xl font-bold mb-2">Hi John Doe, how are you feeling today?</h3>
-      <p className="text-gray-700 mb-4">Let's connect you to a doctor.</p>
-      <form onSubmit={handleSubmit}>
-        <textarea
-          className="w-full h-32 p-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-          placeholder="Add symptoms separated by commas..."
-          value={symptoms}
-          onChange={handleSymptomsChange}
-        ></textarea>
-        <button type="submit" className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
-          Check Symptoms
-        </button>
-      </form>
-    </div>
   );
 };
 
@@ -91,23 +59,20 @@ const EmergencyServices = () => {
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h3 className="text-xl font-bold mb-2">Services</h3>
       <div className="flex flex-wrap">
-        <EmergencyServiceItem icon={faHospital} title="Emergency Services" />
-        <EmergencyServiceItem icon={faUserMd} title="See a Doctor" />
-        <EmergencyServiceItem icon={faBookMedical} title="Book Imaging and Labs" />
-        <div className="flex items-center">
-          <FontAwesomeIcon icon={faEllipsisH} className="text-gray-600 text-lg cursor-pointer" />
-        </div>
+        <EmergencyServiceItem icon={faAmbulance} title="Ambulance" link="/ambulance" />
+        <EmergencyServiceItem icon={faUserMd} title="See Doctor" link="/doctor" />
+        <EmergencyServiceItem icon={faFlask} title="Lab & Radiology" link="/lab-radiology" />
       </div>
     </div>
   );
 };
 
-const EmergencyServiceItem = ({ icon, title }) => {
+const EmergencyServiceItem = ({ icon, title, link }) => {
   return (
-    <div className="flex-shrink-0 bg-gray-200 rounded-lg p-4 mr-4 mb-4">
+    <Link to={link} className="flex-shrink-0 bg-white bg-opacity-75 rounded-lg p-4 mr-4 mb-4">
       <FontAwesomeIcon icon={icon} className="text-gray-600 text-lg" />
       <p className="text-gray-800">{title}</p>
-    </div>
+    </Link>
   );
 };
 
@@ -137,18 +102,18 @@ const DoctorsSection = () => {
 const MobileNavbar = () => {
   return (
     <div className="fixed bottom-0 left-0 w-full bg-white shadow-md p-4 flex justify-around items-center md:hidden">
-      <a href="#home">
+      <Link to="/home">
         <FontAwesomeIcon icon={faHome} className="text-gray-600 text-lg cursor-pointer" />
-      </a>
-      <a href="#messages">
+      </Link>
+      <Link to="/messages">
         <FontAwesomeIcon icon={faEnvelope} className="text-gray-600 text-lg cursor-pointer" />
-      </a>
-      <a href="#search">
+      </Link>
+      <Link to="/search">
         <FontAwesomeIcon icon={faSearch} className="text-gray-600 text-lg cursor-pointer" />
-      </a>
-      <a href="#bookings">
+      </Link>
+      <Link to="/bookings">
         <FontAwesomeIcon icon={faCalendar} className="text-gray-600 text-lg cursor-pointer" />
-      </a>
+      </Link>
     </div>
   );
 };
