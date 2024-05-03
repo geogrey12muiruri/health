@@ -125,6 +125,7 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
   const [loading, setLoading] = useState(false);
   const [showComments, setShowComments] = useState(false); 
   const [postViewed, setPostViewed] = useState(false); // Track if post has been viewed
+  const [modalOpen, setModalOpen] = useState(false); 
   const postRef = useRef(null);
 
   const getComments = async (id) => {
@@ -138,7 +139,11 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
     await likePost(uri);
     getComments(post?._id);
   };
-
+const handlePostClick = () => {
+    setModalOpen(true);
+    setPostViewed(true); // Set post as viewed
+    post.views = post.views + 1; // Increment views
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -174,7 +179,7 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
 
   return (
     <div ref={postRef} className='mb-2 bg-primary p-4 rounded-xl'>
-      <div className='flex gap-3 items-center mb-2'>
+      <div className='flex gap-3 items-center mb-2' onClick={handlePostClick}>
         <Link to={"/profile/" + post?.userId?._id}>
           <img
             src={post?.userId?.profileUrl ?? NoProfile}
