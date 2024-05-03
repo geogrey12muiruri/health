@@ -3,7 +3,6 @@ import { Outlet, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { HomePage, Login, Profile, Register, ResetPassword } from "./pages";
 import Contact from './components/contact/Contact';
-import Navbar from './components/nav/Navbar';
 import Footer from './components/footer/Footer';
 import Pillars from './components/pillars/Pillars';
 import Socials from "./pages/Socials";
@@ -30,7 +29,7 @@ function App() {
   return (
     <div data-theme={theme} className='w-full min-h-[100vh]'>
       {!isServicesPage && !isSocialsPage && <Contact />}
-      <Navbar />
+      {!isServicesPage && <Navbar />}
       <Routes>
         <Route element={<Layout />}>
           <Route path='/' element={<HomePage />} />
