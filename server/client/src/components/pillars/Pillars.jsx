@@ -91,9 +91,9 @@ const EmergencyServices = () => {
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h3 className="text-xl font-bold mb-2">Services</h3>
       <div className="flex flex-wrap">
-        <EmergencyServiceItem icon={faHospital} title="Emergency Services" />
-        <EmergencyServiceItem icon={faUserMd} title="See a Doctor" />
-        <EmergencyServiceItem icon={faBookMedical} title="Book Imaging and Labs" />
+        <EmergencyServiceItem icon={faHospital} title="Ambulance" />
+        <EmergencyServiceItem icon={faUserMd} title="See Doctor" />
+        <EmergencyServiceItem icon={faBookMedical} title="Imaging and Labs" />
         <div className="flex items-center">
           <FontAwesomeIcon icon={faEllipsisH} className="text-gray-600 text-lg cursor-pointer" />
         </div>
