@@ -13,12 +13,12 @@ function Layout() {
   const { user } = useSelector((state) => state.user);
   const location = useLocation();
 
-  return user?.token ? (
-    <Outlet />
-  ) : (
-    <Navigate to='/login' state={{ from: location }} replace />
-  );
-}
+//   return user?.token ? (
+//     <Outlet />
+//   ) : (
+//     <Navigate to='/login' state={{ from: location }} replace />
+//   );
+// }
 
 function App() {
   const { theme } = useSelector((state) => state.theme);
