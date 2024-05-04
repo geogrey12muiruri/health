@@ -12,9 +12,7 @@ const PillarsSection = () => {
         <div className="mb-8">
           <div className="flex items-center">
             <ProfileSection />
-            
           </div>
-          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <SymptomCheckerWithAnimation />
             <EmergencyServicesWithAnimation />
@@ -31,6 +29,7 @@ const slideInVariants = {
   hidden: { y: 100, opacity: 0 },
   visible: { y: 0, opacity: 1 },
 };
+
 const SymptomCheckerWithAnimation = () => {
   return (
     <motion.div
@@ -44,6 +43,7 @@ const SymptomCheckerWithAnimation = () => {
     </motion.div>
   );
 };
+
 const ProfileSection = () => {
   return (
     <div className="flex items-center">
@@ -110,7 +110,6 @@ const EmergencyServiceItem = ({ icon: Icon, title, link }) => {
   );
 };
 
-
 const DoctorsSectionWithAnimation = () => {
   return (
     <motion.div
@@ -125,13 +124,30 @@ const DoctorsSectionWithAnimation = () => {
   );
 };
 
-const doctors = [
-    { name: "Doctor 1", image: doctorImage, description: "Description of Doctor 1" },
-    { name: "Doctor 2", image: doctorImage, description: "Description of Doctor 2" },
-    { name: "Doctor 3", image: doctorImage, description: "Description of Doctor 3" },
-    { name: "Doctor 4", image: doctorImage, description: "Description of Doctor 4" },
-    { name: "Doctor 5", image: doctorImage, description: "Description of Doctor 5" }
-];
+const DoctorsSection = () => {
+  return (
+    <div>
+      <h3 className="text-xl font-bold mb-4">Doctors</h3>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {doctors.map((doctor, index) => (
+          <DoctorCard key={index} doctor={doctor} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const DoctorCard = ({ doctor }) => {
+  const { name, image, description } = doctor;
+
+  return (
+    <div className="bg-white p-4 rounded-lg shadow-md">
+      <img src={image} alt={name} className="w-full h-40 object-cover mb-4 rounded-lg" />
+      <h4 className="text-lg font-semibold">{name}</h4>
+      <p className="text-gray-600">{description}</p>
+    </div>
+  );
+};
 
 const MobileNavbar = () => {
   return (
