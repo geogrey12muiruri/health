@@ -153,7 +153,6 @@ const doctors = [
       ))}
     </div>
   );
-};
 
 const MobileNavbar = () => {
   return (
