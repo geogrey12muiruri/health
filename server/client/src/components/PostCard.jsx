@@ -15,7 +15,7 @@ import { apiRequest } from "../utils";
 const getPostComments = async (id) => {
   try {
     const res = await apiRequest({
-      url: `/comments/${id}`, // Correctly construct the URL
+      url: "/posts/comments" +id, // Correctly construct the URL
       method: "GET",
     });
     console.log("Response:", res); // Log the response
