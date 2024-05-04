@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { SetPosts } from '../redux/postSlice.js';
 
-const API_URL = "https://health-3-olid.onrender.com";
+const API_URL = "https://health-8.onrender";
 
 
 
