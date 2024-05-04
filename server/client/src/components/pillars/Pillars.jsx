@@ -43,12 +43,13 @@ const SymptomCheckerWithAnimation = () => {
 };
 const ProfileSection = () => {
   return (
-    <div className="flex items-center">
+    <div className="flex items-center pb-4"> {/* Adding padding bottom here */}
       <FaUser className="text-gray-600 text-lg cursor-pointer" />
       <p className="text-gray-600 text-sm ml-2">Hello Gedion</p>
     </div>
   );
 };
+
 const EmergencyServicesWithAnimation = () => {
   return (
     <motion.div
