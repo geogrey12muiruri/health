@@ -125,11 +125,11 @@ const DoctorsSectionWithAnimation = () => {
 };
 
 const doctors = [
-    { name: "Doctor 1", image: require('./assets/Screenshot_2024-04-29-19-14-47-115_com.whatsapp-edit.jpg').default, description: "Description of Doctor 1" },
-    { name: "Doctor 2", image: require('./assets/Screenshot_2024-04-29-19-14-47-115_com.whatsapp-edit.jpg').default, description: "Description of Doctor 2" },
-    { name: "Doctor 3", image: require('./assets/Screenshot_2024-04-29-19-14-47-115_com.whatsapp-edit.jpg').default, description: "Description of Doctor 3" },
-    { name: "Doctor 4", image: require('./assets/Screenshot_2024-04-29-19-14-47-115_com.whatsapp-edit.jpg').default, description: "Description of Doctor 4" },
-    { name: "Doctor 5", image: require('./assets/Screenshot_2024-04-29-19-14-47-115_com.whatsapp-edit.jpg').default, description: "Description of Doctor 5" }
+    { name: "Doctor 1", image: doctorImage, description: "Description of Doctor 1" },
+    { name: "Doctor 2", image: doctorImage, description: "Description of Doctor 2" },
+    { name: "Doctor 3", image: doctorImage, description: "Description of Doctor 3" },
+    { name: "Doctor 4", image: doctorImage, description: "Description of Doctor 4" },
+    { name: "Doctor 5", image: doctorImage, description: "Description of Doctor 5" }
 ];
 
 const DoctorsSection = () => {
