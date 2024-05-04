@@ -1,18 +1,15 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { FaHome, FaEnvelope, FaSearch, FaCalendar, FaAmbulance, FaUserMd, FaFlask, FaUser} from 'react-icons/fa';
+import { FaHome, FaEnvelope, FaSearch, FaCalendar, FaAmbulance, FaUserMd, FaFlask } from 'react-icons/fa';
 import SymptomChecker from '../../components/carriculum/Carriculum';
-import doctorImage from './assets/Screenshot_2024-04-29-19-14-47-115_com.whatsapp-edit.jpg';
 
 const PillarsSection = () => {
   return (
     <section className="py-10 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="mb-8">
-          <div className="flex items-center">
-            <ProfileSection />
-          </div>
+          <h2 className="text-3xl font-bold text-center mb-6">Health Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <SymptomCheckerWithAnimation />
             <EmergencyServicesWithAnimation />
@@ -29,7 +26,6 @@ const slideInVariants = {
   hidden: { y: 100, opacity: 0 },
   visible: { y: 0, opacity: 1 },
 };
-
 const SymptomCheckerWithAnimation = () => {
   return (
     <motion.div
@@ -41,15 +37,6 @@ const SymptomCheckerWithAnimation = () => {
     >
       <SymptomChecker />
     </motion.div>
-  );
-};
-
-const ProfileSection = () => {
-  return (
-    <div className="flex items-center">
-      <FaUser className="text-gray-600 text-lg cursor-pointer" />
-      <p className="text-gray-600 text-sm ml-2">Hello Gedion</p>
-    </div>
   );
 };
 
@@ -82,12 +69,12 @@ const EmergencyServices = () => {
 
 const EmergencyServiceItem = ({ icon: Icon, title, link }) => {
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, x: 100 },
     visible: {
       opacity: 1,
-      y: 0,
+      x: 0,
       transition: {
-        delay: 0.3, // Adjust the delay as needed
+        delay: 1.3, // Adjust the delay as needed
         type: "spring",
         stiffness: 100,
         bounce: 0.5,
@@ -100,12 +87,12 @@ const EmergencyServiceItem = ({ icon: Icon, title, link }) => {
       variants={itemVariants}
       initial="hidden"
       animate="visible"
-      className="flex flex-col items-center bg-blue-200 bg-opacity-75 rounded-lg p-4 mr-4 mb-4"
+      className="flex-shrink-0 bg-blue-200 bg-opacity-75 rounded-lg p-4 mr-4 mb-4"
     >
       <Link to={link} className="flex items-center">
         <Icon className="text-gray-600 text-lg" />
+        <p className="text-gray-800 ml-2">{title}</p>
       </Link>
-      <p className="text-gray-800 mt-2 text-center">{title}</p>
     </motion.div>
   );
 };
@@ -125,26 +112,31 @@ const DoctorsSectionWithAnimation = () => {
 };
 
 const DoctorsSection = () => {
-  return (
-    <div>
-      <h3 className="text-xl font-bold mb-4">Doctors</h3>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {doctors.map((doctor, index) => (
-          <DoctorCard key={index} doctor={doctor} />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const DoctorCard = ({ doctor }) => {
-  const { name, image, description } = doctor;
+  const doctors = [
+    { name: "Doctor 1", image: "doctor1.jpg", description: "Description of Doctor 1" },
+    { name: "Doctor 2", image: "doctor2.jpg", description: "Description of Doctor 2" },
+    { name: "Doctor 3", image: "doctor3.jpg", description: "Description of Doctor 3" },
+    { name: "Doctor 4", image: "doctor4.jpg", description: "Description of Doctor 4" },
+    { name: "Doctor 5", image: "doctor5.jpg", description: "Description of Doctor 5" }
+  ];
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-md">
-      <img src={image} alt={name} className="w-full h-40 object-cover mb-4 rounded-lg" />
-      <h4 className="text-lg font-semibold">{name}</h4>
-      <p className="text-gray-600">{description}</p>
+    <div className="flex flex-nowrap flex-wrap lg:flex-no-wrap">
+      {doctors.map((doctor, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.9 + index * 0.1 }} // Delay each doctor card animation
+          className="flex-shrink-0 w-48 lg:w-64 bg-gray-200 rounded-lg p-4 mr-4 mb-4"
+        >
+          <img src={doctor.image} alt={doctor.name} className="w-full h-32 lg:h-40 object-cover rounded-lg mb-2" />
+          <div className="flex flex-col justify-center">
+            <p className="text-gray-800 font-semibold">{doctor.name}</p>
+            <p className="text-gray-600">{doctor.description}</p>
+          </div>
+        </motion.div>
+      ))}
     </div>
   );
 };
