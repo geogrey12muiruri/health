@@ -68,14 +68,18 @@ const EmergencyServices = () => {
   return (
     <div>
       <h3 className="text-xl font-bold mb-2">Services</h3>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap items-center">
         <EmergencyServiceItem icon={FaAmbulance} title="Ambulance" link="/ambulance" />
         <EmergencyServiceItem icon={FaUserMd} title="See Doctor" link="/doctor" />
         <EmergencyServiceItem icon={FaFlask} title="Lab & Radiology" link="/lab-radiology" />
+        <div className="flex flex-col items-center"> {/* "See All" link */}
+          <Link to="/all-emergencies" className="text-gray-600 text-sm mt-2">See All</Link>
+        </div>
       </div>
     </div>
   );
 };
+
 
 const EmergencyServiceItem = ({ icon: Icon, title, link }) => {
   const itemVariants = {
