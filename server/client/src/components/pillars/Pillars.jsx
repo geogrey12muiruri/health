@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaHome, FaEnvelope, FaSearch, FaCalendar, FaAmbulance, FaUserMd, FaFlask, FaUser} from 'react-icons/fa';
 import SymptomChecker from '../../components/carriculum/Carriculum';
-
+import doctorImage from './assets/Screenshot_2024-04-29-19-14-47-115_com.whatsapp-edit.jpg';
+  
 const PillarsSection = () => {
   return (
     <section className="py-10 bg-gray-50">
@@ -124,14 +125,14 @@ const DoctorsSectionWithAnimation = () => {
   );
 };
 
-const DoctorsSection = () => {
-  const doctors = [
-    { name: "Doctor 1", image: "doctor1.jpg", description: "Description of Doctor 1" },
-    { name: "Doctor 2", image: "doctor2.jpg", description: "Description of Doctor 2" },
-    { name: "Doctor 3", image: "doctor3.jpg", description: "Description of Doctor 3" },
-    { name: "Doctor 4", image: "doctor4.jpg", description: "Description of Doctor 4" },
-    { name: "Doctor 5", image: "doctor5.jpg", description: "Description of Doctor 5" }
-  ];
+const doctors = [
+    { name: "Doctor 1", image: "server/client/src/assets/Screenshot_2024-04-29-19-14-47-115_com.whatsapp-edit.jpg", description: "Description of Doctor 1" },
+    { name: "Doctor 2", image: "server/client/src/assets/Screenshot_2024-04-29-19-14-47-115_com.whatsapp-edit.jpg", description: "Description of Doctor 2" },
+    { name: "Doctor 3", image: "server/client/src/assets/Screenshot_2024-04-29-19-14-47-115_com.whatsapp-edit.jpg", description: "Description of Doctor 3" },
+    { name: "Doctor 4", image: "server/client/src/assets/Screenshot_2024-04-29-19-14-47-115_com.whatsapp-edit.jpg", description: "Description of Doctor 4" },
+    { name: "Doctor 5", image: "server/client/src/assets/Screenshot_2024-04-29-19-14-47-115_com.whatsapp-edit.jpg", description: "Description of Doctor 5" }
+];
+
 
   return (
     <div className="flex flex-nowrap flex-wrap lg:flex-no-wrap">
