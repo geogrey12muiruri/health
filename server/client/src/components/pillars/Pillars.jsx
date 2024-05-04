@@ -133,7 +133,7 @@ const doctors = [
     { name: "Doctor 5", image: require('./assets/Screenshot_2024-04-29-19-14-47-115_com.whatsapp-edit.jpg').default, description: "Description of Doctor 5" }
 ];
 
-
+);
   return (
     <div className="flex flex-nowrap flex-wrap lg:flex-no-wrap">
       {doctors.map((doctor, index) => (
@@ -153,6 +153,7 @@ const doctors = [
       ))}
     </div>
   );
+);
 
 const MobileNavbar = () => {
   return (
