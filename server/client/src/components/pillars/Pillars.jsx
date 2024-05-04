@@ -9,7 +9,9 @@ const PillarsSection = () => {
     <section className="py-10 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="mb-8">
-          <h2 className="text-3xl font-bold text-center mb-6">Health Services</h2>
+          <div className="flex items-center">
+            <ProfileSection />
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <SymptomCheckerWithAnimation />
             <EmergencyServicesWithAnimation />
@@ -39,7 +41,14 @@ const SymptomCheckerWithAnimation = () => {
     </motion.div>
   );
 };
-
+const ProfileSection = () => {
+  return (
+    <div className="flex items-center">
+      <FaUser className="text-gray-600 text-lg cursor-pointer" />
+      <p className="text-gray-600 text-sm ml-2">Hello Gedion</p>
+    </div>
+  );
+};
 const EmergencyServicesWithAnimation = () => {
   return (
     <motion.div
